@@ -1,0 +1,16 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "c848c7f8-8f41-4f1f-a6c3-b42c89e9b43a": {
+      "ProjectGuid": "c848c7f8-8f41-4f1f-a6c3-b42c89e9b43a",
+      "DisplayName": "HostingEmap",
+      "ColorIndex": 0
+    },
+    "a8685e30-c68e-4648-9821-82d783dc7985": {
+      "ProjectGuid": "a8685e30-c68e-4648-9821-82d783dc7985",
+      "DisplayName": "BarCodeParser",
+      "ColorIndex": 1
+    }
+  },
+  "NextColorIndex": 2
+}

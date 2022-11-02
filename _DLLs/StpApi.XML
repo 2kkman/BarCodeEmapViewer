@@ -1,0 +1,2478 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>StpApi</name>
+    </assembly>
+    <members>
+        <member name="M:Impinj.STP.Device.NetConnect(System.String)">
+            <summary>
+              Initiates STP API connection to the reader specified.
+            </summary>
+            <param name="reader">
+              The IP address or DNS name of the reader to connect to.
+            </param>
+        </member>
+        <member name="M:Impinj.STP.Device.NetConnect(System.String,System.UInt16)">
+            <summary>
+              Initiates STP API connection to the reader specified.
+            </summary>
+            <param name="reader">
+              The IP address or DNS name of the reader to connect to.
+            </param>
+            <param name="port">
+              The port number to connect to on the specified reader.
+            </param>        
+        </member>
+        <member name="M:Impinj.STP.Device.NetDisconnect">
+            <summary>
+              Disconnects the current STP API session with the connected reader.
+            </summary>        
+        </member>
+        <member name="M:Impinj.STP.Device.GetVersions">
+            <summary>
+               Gets the version of the reader's STP firmware, host library and API version.
+            </summary>
+        </member>
+        <member name="M:Impinj.STP.Device.SetDeviceConfig(Impinj.STP.DeviceConfig)">
+            <summary>
+              Set how GPOs change during encode and inventory. 
+            </summary>
+            <param name="deviceConfig">
+              
+            </param>
+        </member>
+        <member name="M:Impinj.STP.Device.SetAntennaConfig(Impinj.STP.AntennasConfig)">
+            <param name="antennasConfig">
+              
+            </param>
+        </member>
+        <member name="M:Impinj.STP.Device.Engage">
+            <summary>
+              Call before \ref start to enable GPI triggering. 
+            </summary>
+        </member>
+        <member name="M:Impinj.STP.Device.Disengage">
+            <summary>
+              Call after stopping the encode or inventory operation so the device can be reconfigured. 
+            </summary>
+        </member>
+        <member name="M:Impinj.STP.Device.SetOperationResultGpo(Impinj.STP.OperationSummaryResult)">
+            <summary>
+              When the GPOConfig enable_operation_result_gpo is set false, this command lets the client application set the pass/fail GPO based on its own pass/fail conditions. 
+            </summary>
+            <param name="operationSummaryResult">
+              
+            </param>
+        </member>
+        <member name="M:Impinj.STP.Device.AddSerializationJob(Impinj.STP.SerializationJob)">
+            <param name="serializationJob">
+              
+            </param>
+        </member>
+        <member name="M:Impinj.STP.Device.RemoveSerializationJob(System.UInt32)">
+            <param name="jobId">
+              
+            </param>
+        </member>
+        <member name="M:Impinj.STP.Device.AddTidTableEntries(Impinj.STP.TidTableEntries)">
+            <param name="tableEntries">
+              
+            </param>
+        </member>
+        <member name="M:Impinj.STP.Device.AddOrderedListEntries(Impinj.STP.OrderedListEntries)">
+            <param name="orderedListEntries">
+              
+            </param>
+        </member>
+        <member name="M:Impinj.STP.Device.SetInventoryJob(Impinj.STP.InventoryJob)">
+            <param name="inventoryJob">
+              
+            </param>
+        </member>
+        <member name="M:Impinj.STP.Device.SetCartonContentsJob(Impinj.STP.CartonContentsJob)">
+            <param name="cartonContentsJob">
+              
+            </param>
+        </member>
+        <member name="M:Impinj.STP.Device.AddLicenseKey(Impinj.STP.LicenseKey)">
+            <param name="licenseKey">
+              
+            </param>
+        </member>
+        <member name="E:Impinj.STP.Device.AllReportsReceived">
+            Use this event to handle all reports. 
+        </member>
+        <member name="E:Impinj.STP.Device.OperationSummaryReportReceived">
+            Use this event to handle OperationSummaryReports.
+        </member>
+        <member name="E:Impinj.STP.Device.TagOperationReportReceived">
+            Use this event to handle TagOperationReports.
+        </member>
+        <member name="E:Impinj.STP.Device.DeviceEventReportReceived">
+            Use this event to handle DeviceEventReports.
+        </member>
+        <member name="E:Impinj.STP.Device.CartonContentsReportReceived">
+            Use this event to handle CartonContentsReports.
+        </member>
+        <member name="T:Impinj.STP.Device.AllReportsReceivedHandler">
+            Definition of report delegate. 
+        </member>
+        <member name="T:Impinj.STP.Device.OperationSummaryReportReceivedHandler">
+            Definition of report delegate. 
+        </member>
+        <member name="T:Impinj.STP.Device.TagOperationReportReceivedHandler">
+            Definition of report delegate. 
+        </member>
+        <member name="T:Impinj.STP.Device.DeviceEventReportReceivedHandler">
+            Definition of report delegate. 
+        </member>
+        <member name="T:Impinj.STP.Device.CartonContentsReportReceivedHandler">
+            Definition of report delegate. 
+        </member>
+        <member name="T:Impinj.STP.Reply">
+            <summary>
+            A response sent by all commands. 
+            </summary>
+        </member>
+        <member name="M:Impinj.STP.Reply.ToString">
+            <summary>
+            Converts message to human readable string
+            </summary>
+        </member>
+        <member name="M:Impinj.STP.Reply.ToString(System.String)">
+            <summary>
+            Converts message to human readable string with provided indent
+            </summary>
+        </member>
+        <member name="P:Impinj.STP.Reply.ErrorString">
+            <summary>
+            Human-readable text describing what happened. 
+            </summary>
+        </member>
+        <member name="T:Impinj.STP.DeviceState">
+            <summary>
+            The health or fault state of the device. 
+            </summary>
+        </member>
+        <member name="M:Impinj.STP.DeviceState.ToString">
+            <summary>
+            Converts message to human readable string
+            </summary>
+        </member>
+        <member name="M:Impinj.STP.DeviceState.ToString(System.String)">
+            <summary>
+            Converts message to human readable string with provided indent
+            </summary>
+        </member>
+        <member name="T:Impinj.STP.Version">
+            <summary>
+            A version of part of the system. The version number is usually in the form "major.minor.maintenance.build-ident". 
+            </summary>
+        </member>
+        <member name="M:Impinj.STP.Version.ToString">
+            <summary>
+            Converts message to human readable string
+            </summary>
+        </member>
+        <member name="M:Impinj.STP.Version.ToString(System.String)">
+            <summary>
+            Converts message to human readable string with provided indent
+            </summary>
+        </member>
+        <member name="P:Impinj.STP.Version.Major">
+            <summary>
+            Also used for single number versions. 
+            </summary>
+        </member>
+        <member name="P:Impinj.STP.Version.Ident">
+            <summary>
+            A semicolon-separated list of additional version information, such as the name of the component and if a "Final" or "Dev" build was done. 
+            </summary>
+        </member>
+        <member name="T:Impinj.STP.Versions">
+            <summary>
+            A list of local API library and device versions. 
+            </summary>
+        </member>
+        <member name="M:Impinj.STP.Versions.ToString">
+            <summary>
+            Converts message to human readable string
+            </summary>
+        </member>
+        <member name="M:Impinj.STP.Versions.ToString(System.String)">
+            <summary>
+            Converts message to human readable string with provided indent
+            </summary>
+        </member>
+        <member name="T:Impinj.STP.HandShake">
+            <summary>
+            API description sent as part of the connection. The client app does not need to create or send this message. 
+            </summary>
+        </member>
+        <member name="M:Impinj.STP.HandShake.ToString">
+            <summary>
+            Converts message to human readable string
+            </summary>
+        </member>
+        <member name="M:Impinj.STP.HandShake.ToString(System.String)">
+            <summary>
+            Converts message to human readable string with provided indent
+            </summary>
+        </member>
+        <member name="T:Impinj.STP.Region">
+            <summary>
+            Details needed to specify all region parameters. 
+            </summary>
+        </member>
+        <member name="M:Impinj.STP.Region.ToString">
+            <summary>
+            Converts message to human readable string
+            </summary>
+        </member>
+        <member name="M:Impinj.STP.Region.ToString(System.String)">
+            <summary>
+            Converts message to human readable string with provided indent
+            </summary>
+        </member>
+        <member name="T:Impinj.STP.Timestamp">
+            <summary>
+            The time that an event happened on the device.  Used in reports so a client application knows when tag operations occur. 
+            </summary>
+        </member>
+        <member name="M:Impinj.STP.Timestamp.ToString">
+            <summary>
+            Converts message to human readable string
+            </summary>
+        </member>
+        <member name="M:Impinj.STP.Timestamp.ToString(System.String)">
+            <summary>
+            Converts message to human readable string with provided indent
+            </summary>
+        </member>
+        <member name="P:Impinj.STP.Timestamp.UsecondsSinceEpoch">
+            <summary>
+            Microseconds since Jan. 1 1970. 
+            </summary>
+        </member>
+        <member name="T:Impinj.STP.ConnectCommand">
+            <summary>
+            Sent on the initial device connection to verify the health of the channel. 
+            </summary>
+        </member>
+        <member name="M:Impinj.STP.ConnectCommand.ToString">
+            <summary>
+            Converts message to human readable string
+            </summary>
+        </member>
+        <member name="M:Impinj.STP.ConnectCommand.ToString(System.String)">
+            <summary>
+            Converts message to human readable string with provided indent
+            </summary>
+        </member>
+        <member name="T:Impinj.STP.GetDeviceStateCommand">
+            <summary>
+            Request the health of the device. See GetDeviceStateResp_ 
+            </summary>
+        </member>
+        <member name="M:Impinj.STP.GetDeviceStateCommand.ToString">
+            <summary>
+            Converts message to human readable string
+            </summary>
+        </member>
+        <member name="M:Impinj.STP.GetDeviceStateCommand.ToString(System.String)">
+            <summary>
+            Converts message to human readable string with provided indent
+            </summary>
+        </member>
+        <member name="T:Impinj.STP.GetVersionsReaderCommand">
+            <summary>
+            Get versions of device firmware, API.  See GetVersionsReaderResp_ 
+            </summary>
+        </member>
+        <member name="M:Impinj.STP.GetVersionsReaderCommand.ToString">
+            <summary>
+            Converts message to human readable string
+            </summary>
+        </member>
+        <member name="M:Impinj.STP.GetVersionsReaderCommand.ToString(System.String)">
+            <summary>
+            Converts message to human readable string with provided indent
+            </summary>
+        </member>
+        <member name="T:Impinj.STP.StopCommand">
+            <summary>
+            Stop the current device encode or inventory operation. 
+            </summary>
+        </member>
+        <member name="M:Impinj.STP.StopCommand.ToString">
+            <summary>
+            Converts message to human readable string
+            </summary>
+        </member>
+        <member name="M:Impinj.STP.StopCommand.ToString(System.String)">
+            <summary>
+            Converts message to human readable string with provided indent
+            </summary>
+        </member>
+        <member name="T:Impinj.STP.ConnectResp">
+            <summary>
+            Indicates that the connection was successful. See ConnectCommand_. 
+            </summary>
+        </member>
+        <member name="M:Impinj.STP.ConnectResp.ToString">
+            <summary>
+            Converts message to human readable string
+            </summary>
+        </member>
+        <member name="M:Impinj.STP.ConnectResp.ToString(System.String)">
+            <summary>
+            Converts message to human readable string with provided indent
+            </summary>
+        </member>
+        <member name="T:Impinj.STP.GetDeviceStateResp">
+            <summary>
+            The health of the device.  See GetDeviceStateCommand_. 
+            </summary>
+        </member>
+        <member name="M:Impinj.STP.GetDeviceStateResp.ToString">
+            <summary>
+            Converts message to human readable string
+            </summary>
+        </member>
+        <member name="M:Impinj.STP.GetDeviceStateResp.ToString(System.String)">
+            <summary>
+            Converts message to human readable string with provided indent
+            </summary>
+        </member>
+        <member name="T:Impinj.STP.GetVersionsReaderResp">
+            <summary>
+            The device firmware and API versions. See GetVersionsReaderCommand_. 
+            </summary>
+        </member>
+        <member name="M:Impinj.STP.GetVersionsReaderResp.ToString">
+            <summary>
+            Converts message to human readable string
+            </summary>
+        </member>
+        <member name="M:Impinj.STP.GetVersionsReaderResp.ToString(System.String)">
+            <summary>
+            Converts message to human readable string with provided indent
+            </summary>
+        </member>
+        <member name="P:Impinj.STP.GetVersionsReaderResp.Versions">
+            <summary>
+            A list of remote device API and firmware versions. 
+            </summary>
+        </member>
+        <member name="T:Impinj.STP.InvalidResp">
+            <summary>
+            The command sent to the device was not recognized as valid. 
+            </summary>
+        </member>
+        <member name="M:Impinj.STP.InvalidResp.ToString">
+            <summary>
+            Converts message to human readable string
+            </summary>
+        </member>
+        <member name="M:Impinj.STP.InvalidResp.ToString(System.String)">
+            <summary>
+            Converts message to human readable string with provided indent
+            </summary>
+        </member>
+        <member name="T:Impinj.STP.StopResp">
+            <summary>
+            See StopCommand_. 
+            </summary>
+        </member>
+        <member name="M:Impinj.STP.StopResp.ToString">
+            <summary>
+            Converts message to human readable string
+            </summary>
+        </member>
+        <member name="M:Impinj.STP.StopResp.ToString(System.String)">
+            <summary>
+            Converts message to human readable string with provided indent
+            </summary>
+        </member>
+        <member name="T:Impinj.STP.DeviceConfig">
+            <summary>
+            Defines the behavior of the device. See SetDeviceConfigResp_. 
+            </summary>
+        </member>
+        <member name="M:Impinj.STP.DeviceConfig.ToString">
+            <summary>
+            Converts message to human readable string
+            </summary>
+        </member>
+        <member name="M:Impinj.STP.DeviceConfig.ToString(System.String)">
+            <summary>
+            Converts message to human readable string with provided indent
+            </summary>
+        </member>
+        <member name="T:Impinj.STP.TriggerConfig">
+            <summary>
+            Define how GPI signals affect operations start and stop. 
+            </summary>
+        </member>
+        <member name="M:Impinj.STP.TriggerConfig.ToString">
+            <summary>
+            Converts message to human readable string
+            </summary>
+        </member>
+        <member name="M:Impinj.STP.TriggerConfig.ToString(System.String)">
+            <summary>
+            Converts message to human readable string with provided indent
+            </summary>
+        </member>
+        <member name="T:Impinj.STP.StartTriggerConfig">
+            <summary>
+            Always accept the start command from the client or optionally a GPI start trigger. 
+            </summary>
+        </member>
+        <member name="M:Impinj.STP.StartTriggerConfig.ToString">
+            <summary>
+            Converts message to human readable string
+            </summary>
+        </member>
+        <member name="M:Impinj.STP.StartTriggerConfig.ToString(System.String)">
+            <summary>
+            Converts message to human readable string with provided indent
+            </summary>
+        </member>
+        <member name="T:Impinj.STP.StopTriggerConfig">
+            <summary>
+            Always accept stop command from the client or optionally from GPI, count, or timeout. 
+            </summary>
+        </member>
+        <member name="M:Impinj.STP.StopTriggerConfig.ToString">
+            <summary>
+            Converts message to human readable string
+            </summary>
+        </member>
+        <member name="M:Impinj.STP.StopTriggerConfig.ToString(System.String)">
+            <summary>
+            Converts message to human readable string with provided indent
+            </summary>
+        </member>
+        <member name="P:Impinj.STP.StopTriggerConfig.Timeout">
+            <summary>
+            Timeout in milliseconds. 0 = no timeout. 
+            </summary>
+        </member>
+        <member name="T:Impinj.STP.GpiConfig">
+            <summary>
+            Define how input functions map to signal lines and defines input polarities. 
+            </summary>
+        </member>
+        <member name="M:Impinj.STP.GpiConfig.ToString">
+            <summary>
+            Converts message to human readable string
+            </summary>
+        </member>
+        <member name="M:Impinj.STP.GpiConfig.ToString(System.String)">
+            <summary>
+            Converts message to human readable string with provided indent
+            </summary>
+        </member>
+        <member name="T:Impinj.STP.GpoConfig">
+            <summary>
+            Define how output functions map to signal lines and defines output polarities. 
+            </summary>
+        </member>
+        <member name="M:Impinj.STP.GpoConfig.ToString">
+            <summary>
+            Converts message to human readable string
+            </summary>
+        </member>
+        <member name="M:Impinj.STP.GpoConfig.ToString(System.String)">
+            <summary>
+            Converts message to human readable string with provided indent
+            </summary>
+        </member>
+        <member name="P:Impinj.STP.GpoConfig.SignalingMode">
+            <summary>
+            Operation pass/fail on the same GPO or separate GPOs. 
+            </summary>
+        </member>
+        <member name="P:Impinj.STP.GpoConfig.Gpo1Polarity">
+            <summary>
+            Operation Status - Start and Complete 
+            </summary>
+        </member>
+        <member name="P:Impinj.STP.GpoConfig.Gpo2Polarity">
+            <summary>
+            In separate output mode, GPO2 will indicate with this polarity that the operation passed. In combined mode when the operation clock transitions, this setting indicates pass and the opposite polarity failure. 
+            </summary>
+        </member>
+        <member name="P:Impinj.STP.GpoConfig.Gpo3Polarity">
+            <summary>
+            In separate output mode, a failure will set GPO3 low or high depending on this setting. 
+            </summary>
+        </member>
+        <member name="P:Impinj.STP.GpoConfig.GpoPulseDuration">
+            <summary>
+            The output pulse duration in milliseconds. A value of zero means toggle as fast as possible. 
+            </summary>
+        </member>
+        <member name="P:Impinj.STP.GpoConfig.EnableOperationResultGpo">
+            <summary>
+            If set to true, the GPO will change when the operation is complete. If false the client may set pass/fail with the set_operation_result_gpo command. 
+            </summary>
+        </member>
+        <member name="M:Impinj.STP.STPDevice.ToString">
+            <summary>
+            Converts message to human readable string
+            </summary>
+        </member>
+        <member name="M:Impinj.STP.STPDevice.ToString(System.String)">
+            <summary>
+            Converts message to human readable string with provided indent
+            </summary>
+        </member>
+        <member name="P:Impinj.STP.STPDevice.Hostname">
+            <summary>
+            This must be an IP address (for now) in the format 'ddd.ddd.ddd.ddd', for example: 192.168.1.10 
+            </summary>
+        </member>
+        <member name="T:Impinj.STP.OperationResponsibility">
+            <summary>
+            Define which areas of tag memory this device is responsible for writing and which operations to perform. 
+            </summary>
+        </member>
+        <member name="M:Impinj.STP.OperationResponsibility.ToString">
+            <summary>
+            Converts message to human readable string
+            </summary>
+        </member>
+        <member name="M:Impinj.STP.OperationResponsibility.ToString(System.String)">
+            <summary>
+            Converts message to human readable string with provided indent
+            </summary>
+        </member>
+        <member name="P:Impinj.STP.OperationResponsibility.EpcMemoryMask">
+            <summary>
+            Hex representation of 32-bit Blocks (F = 1111 = encode 4 32-bitblocks). 
+            </summary>
+        </member>
+        <member name="P:Impinj.STP.OperationResponsibility.EpcMemoryPcWord">
+            <summary>
+            Encode or verify configured PC Word 
+            </summary>
+        </member>
+        <member name="P:Impinj.STP.OperationResponsibility.UserMemoryMask">
+            <summary>
+            Hex representation of 32-bit Blocks (F = 1111 = encode 4 32-bit blocks) 
+            </summary>
+        </member>
+        <member name="P:Impinj.STP.OperationResponsibility.SecurePassword">
+            <summary>
+            If true, use the secured password to move tag to secure state on this device. 
+            </summary>
+        </member>
+        <member name="P:Impinj.STP.OperationResponsibility.AccessPassword">
+            <summary>
+            Encode or verify configured 32-bit Access password 
+            </summary>
+        </member>
+        <member name="P:Impinj.STP.OperationResponsibility.KillPassword">
+            <summary>
+            Encode or verify configured 32-bit Kill password 
+            </summary>
+        </member>
+        <member name="P:Impinj.STP.OperationResponsibility.LockConfig">
+            <summary>
+            Set or verify (read reserved memory) Lock config 
+            </summary>
+        </member>
+        <member name="P:Impinj.STP.OperationResponsibility.BlockpermalockConfig">
+            <summary>
+            Set or verify (read reserved memory) BlockPermalock config 
+            </summary>
+        </member>
+        <member name="P:Impinj.STP.OperationResponsibility.TagSpecificFeatureConfig">
+            <summary>
+            Tag specific feature configuration for Monza 6 (and possibly) later tags 
+            </summary>
+        </member>
+        <member name="P:Impinj.STP.OperationResponsibility.TagsInViewCount">
+            <summary>
+            The approximate number of tags in the field of view.  This parameter is only valid In continuous mode; a report will be sent when a tagis removed from a list of this size. A larger number will delay reports, butallow retries if a tag remains in view. 
+            </summary>
+        </member>
+        <member name="P:Impinj.STP.OperationResponsibility.TagsInPipelineViewCount">
+            <summary>
+            The approximate number of total tags expected in the STP pipeline.  This parameter is only significant in systems that have multipledevices working together to pipeline the encoding process, the value shouldbe set to exceed the total number of tags between the first and last STP devices. By default this is set to 0 (disabling the feature). 
+            </summary>
+        </member>
+        <member name="P:Impinj.STP.OperationResponsibility.DownstreamPipelineDevices">
+            <summary>
+            A list of downstream STP devices in pipeline which will be sent operation notifications, only necessary when 'tags_in_pipeline_view_count' is used.  The order the devices will determine the order the notifications are sent.
+            </summary>
+        </member>
+        <member name="P:Impinj.STP.OperationResponsibility.DeviceOfRecord">
+            <summary>
+            Downstream STP device that allows non Monza encoding 
+            </summary>
+        </member>
+        <member name="P:Impinj.STP.OperationResponsibility.VoyanticTagsuranceTestResultsCacheSize">
+            <summary>
+            The approximate number of tags expected in the pipeline betweena third party tester and the first ItemEncode device.  Setting this to 0disables the listening feature.  Setting this to any other value indicatesthat this ItemEncode device should expect rf performance reports for everytag it sees 
+            </summary>
+        </member>
+        <member name="P:Impinj.STP.OperationResponsibility.VoidTagResponsibility">
+            <summary>
+            In cases where there is voiding possible, this is how the userspecifies the responsibility of this device 
+            </summary>
+        </member>
+        <member name="M:Impinj.STP.VoidTagResponsibility.ToString">
+            <summary>
+            Converts message to human readable string
+            </summary>
+        </member>
+        <member name="M:Impinj.STP.VoidTagResponsibility.ToString(System.String)">
+            <summary>
+            Converts message to human readable string with provided indent
+            </summary>
+        </member>
+        <member name="P:Impinj.STP.VoidTagResponsibility.PcWordToZero">
+            <summary>
+            Set EPC Length to 0. 
+            </summary>
+        </member>
+        <member name="P:Impinj.STP.VoidTagResponsibility.FirstEpcWords">
+            <summary>
+            Encode first two EPC words to DEAD DEAD. 
+            </summary>
+        </member>
+        <member name="P:Impinj.STP.VoidTagResponsibility.Permalock">
+            <summary>
+            Permalock the entire tag. 
+            </summary>
+        </member>
+        <member name="P:Impinj.STP.VoidTagResponsibility.Kill">
+            <summary>
+            Kill the tag. 
+            </summary>
+        </member>
+        <member name="T:Impinj.STP.OperationSummaryReportConfig">
+            <summary>
+            Enable a summary report at the end of the device operation. 
+            </summary>
+        </member>
+        <member name="M:Impinj.STP.OperationSummaryReportConfig.ToString">
+            <summary>
+            Converts message to human readable string
+            </summary>
+        </member>
+        <member name="M:Impinj.STP.OperationSummaryReportConfig.ToString(System.String)">
+            <summary>
+            Converts message to human readable string with provided indent
+            </summary>
+        </member>
+        <member name="T:Impinj.STP.TagOperationReportConfig">
+            <summary>
+            Configure what types of reports to send from the device. 
+            </summary>
+        </member>
+        <member name="M:Impinj.STP.TagOperationReportConfig.ToString">
+            <summary>
+            Converts message to human readable string
+            </summary>
+        </member>
+        <member name="M:Impinj.STP.TagOperationReportConfig.ToString(System.String)">
+            <summary>
+            Converts message to human readable string with provided indent
+            </summary>
+        </member>
+        <member name="P:Impinj.STP.TagOperationReportConfig.EnableReportingOverSerialPort">
+            <summary>
+            Send a brief one-line ASCII report over the device's serial port. Only used for single operating mode.  See OperationMode_.
+            </summary>
+        </member>
+        <member name="P:Impinj.STP.TagOperationReportConfig.SendSerialReportAfterGpoDeassert">
+            <summary>
+            Send after GPO pass/fail assert or deassert. 
+            </summary>
+        </member>
+        <member name="P:Impinj.STP.TagOperationReportConfig.EnableEpcInSerialReport">
+            <summary>
+            This only has meaning if enable_reporting_over_serial_port istrue.  When this is false, the EPC reported in the serial tag report isthe empty string instead of the actual EPC read.  This is useful forreducing the amount of traffic over the serial port if the EPC is notuseful for a particular application. 
+            </summary>
+        </member>
+        <member name="T:Impinj.STP.ReportConfig">
+            <summary>
+            Define what to report to the client application. 
+            </summary>
+        </member>
+        <member name="M:Impinj.STP.ReportConfig.ToString">
+            <summary>
+            Converts message to human readable string
+            </summary>
+        </member>
+        <member name="M:Impinj.STP.ReportConfig.ToString(System.String)">
+            <summary>
+            Converts message to human readable string with provided indent
+            </summary>
+        </member>
+        <member name="T:Impinj.STP.AntennaConfig">
+            <summary>
+            An antenna's RF, timing, and Gen 2 behavior parameters. 
+            </summary>
+        </member>
+        <member name="M:Impinj.STP.AntennaConfig.ToString">
+            <summary>
+            Converts message to human readable string
+            </summary>
+        </member>
+        <member name="M:Impinj.STP.AntennaConfig.ToString(System.String)">
+            <summary>
+            Converts message to human readable string with provided indent
+            </summary>
+        </member>
+        <member name="P:Impinj.STP.AntennaConfig.AntennaId">
+            <summary>
+            The 1-based ID of the reader antenna. 
+            </summary>
+        </member>
+        <member name="P:Impinj.STP.AntennaConfig.TransmitPower">
+            <summary>
+            Transmit power in cdBm. 
+            </summary>
+        </member>
+        <member name="P:Impinj.STP.AntennaConfig.ReceiveSensitivity">
+            <summary>
+            Receive sensitivity in cdBm.  If not specified, no RSSI filtering is done. 
+            </summary>
+        </member>
+        <member name="P:Impinj.STP.AntennaConfig.MinimumDwellTime">
+            <summary>
+            Minimum time to dwell on the antenna in milliseconds. A valueof 0 indicates no minimum. 
+            </summary>
+        </member>
+        <member name="P:Impinj.STP.AntennaConfig.MaximumDwellTime">
+            <summary>
+            Maximum time to dwell on the antenna in milliseconds. A valueof 0 indicates no maximum. 
+            </summary>
+        </member>
+        <member name="P:Impinj.STP.AntennaConfig.EnableQueryForQIncrease">
+            <summary>
+            Indicates whether a query should be used instead of a queryadjust when the reader wishes to increase the Q value during the round.
+            </summary>
+        </member>
+        <member name="P:Impinj.STP.AntennaConfig.EnableQueryForQDecrease">
+            <summary>
+            Indicates whether a query should be used instead of a queryadjust when the reader wishes to decrease the Q value during the round.
+            </summary>
+        </member>
+        <member name="P:Impinj.STP.AntennaConfig.EnableQueryAtUCycleEnd">
+            <summary>
+            Indicates whether a query should be used instead of a queryadjust for the flush queries at the end of the round.  
+            </summary>
+        </member>
+        <member name="P:Impinj.STP.AntennaConfig.EnableAdaptiveTagPopulationEstimate">
+            <summary>
+            Indicates whether the tag_population_estimate in the AntennaConfig should be updated with the actual number of tags seen.  
+            </summary>
+        </member>
+        <member name="T:Impinj.STP.AntennasConfig">
+            <summary>
+            A list of antenna configurations. 
+            </summary>
+        </member>
+        <member name="M:Impinj.STP.AntennasConfig.ToString">
+            <summary>
+            Converts message to human readable string
+            </summary>
+        </member>
+        <member name="M:Impinj.STP.AntennasConfig.ToString(System.String)">
+            <summary>
+            Converts message to human readable string with provided indent
+            </summary>
+        </member>
+        <member name="P:Impinj.STP.AntennasConfig.AntennaConfig">
+            <summary>
+            The device will cycle through the configurations in the orderin which they appear in the list.  The amount of time spent on eachantenna is determined by the reader, but constrained by theminimum_dwell_time and maximum_dwell_time if those parameters are set.It is valid to provide multiple AntennaConfig messages that contain thesame antenna_id in which case they will simply be treated as independentAntennaConfig entries.
+            </summary>
+        </member>
+        <member name="T:Impinj.STP.InventoryJob">
+            <summary>
+            What to report during an inventory. 
+            </summary>
+        </member>
+        <member name="M:Impinj.STP.InventoryJob.ToString">
+            <summary>
+            Converts message to human readable string
+            </summary>
+        </member>
+        <member name="M:Impinj.STP.InventoryJob.ToString(System.String)">
+            <summary>
+            Converts message to human readable string with provided indent
+            </summary>
+        </member>
+        <member name="T:Impinj.STP.CartonContentsJob">
+            <summary>
+            A Carton contents job is what you use to provide you with anestimate of what tags are in a given carton 
+            </summary>
+        </member>
+        <member name="M:Impinj.STP.CartonContentsJob.ToString">
+            <summary>
+            Converts message to human readable string
+            </summary>
+        </member>
+        <member name="M:Impinj.STP.CartonContentsJob.ToString(System.String)">
+            <summary>
+            Converts message to human readable string with provided indent
+            </summary>
+        </member>
+        <member name="P:Impinj.STP.CartonContentsJob.EnterTriggerOffset">
+            <summary>
+            Distance in millimeters from the enter trigger to the center ofthe tunnel 
+            </summary>
+        </member>
+        <member name="P:Impinj.STP.CartonContentsJob.ExitTriggerOffset">
+            <summary>
+            Distance in millimeters from the exit trigger to the center ofthe tunnel 
+            </summary>
+        </member>
+        <member name="P:Impinj.STP.CartonContentsJob.CartonVelocity">
+            <summary>
+            Speed of the cartons measured in millimeters / second 
+            </summary>
+        </member>
+        <member name="P:Impinj.STP.CartonContentsJob.ReadTid">
+            <summary>
+            Setting to false disables reading the TID. This can improveoverall carton accuracy. 
+            </summary>
+        </member>
+        <member name="P:Impinj.STP.CartonContentsJob.CartonSpacing">
+            <summary>
+            DEPRECATED 
+            </summary>
+        </member>
+        <member name="P:Impinj.STP.CartonContentsJob.StartTriggerOffset">
+            <summary>
+            DEPRECATED 
+            </summary>
+        </member>
+        <member name="P:Impinj.STP.CartonContentsJob.StopTriggerOffset">
+            <summary>
+            DEPRECATED 
+            </summary>
+        </member>
+        <member name="M:Impinj.STP.VoidTagConfig.ToString">
+            <summary>
+            Converts message to human readable string
+            </summary>
+        </member>
+        <member name="M:Impinj.STP.VoidTagConfig.ToString(System.String)">
+            <summary>
+            Converts message to human readable string with provided indent
+            </summary>
+        </member>
+        <member name="P:Impinj.STP.VoidTagConfig.KillTag">
+            <summary>
+            If kill_tag is set, it overrides the other possible voiding operations, and none of the other ones will be attempted. 
+            </summary>
+        </member>
+        <member name="P:Impinj.STP.VoidTagConfig.PermalockAllBanks">
+            <summary>
+            Attempt to permalock all the memory banks after writing a 0 length to the PC word and 0xDEADDEAD to the first 2 words of EPC memory. 
+            </summary>
+        </member>
+        <member name="M:Impinj.STP.Filter.ToString">
+            <summary>
+            Converts message to human readable string
+            </summary>
+        </member>
+        <member name="M:Impinj.STP.Filter.ToString(System.String)">
+            <summary>
+            Converts message to human readable string with provided indent
+            </summary>
+        </member>
+        <member name="P:Impinj.STP.Filter.Data">
+            <summary>
+            Data to be matched. 
+            </summary>
+        </member>
+        <member name="P:Impinj.STP.Filter.Mask">
+            <summary>
+            Which bits to match. 
+            </summary>
+        </member>
+        <member name="P:Impinj.STP.Filter.WordOffset">
+            <summary>
+            This offset specifies the word address to start the data and mask at. 
+            </summary>
+        </member>
+        <member name="M:Impinj.STP.SerializationJobFilters.ToString">
+            <summary>
+            Converts message to human readable string
+            </summary>
+        </member>
+        <member name="M:Impinj.STP.SerializationJobFilters.ToString(System.String)">
+            <summary>
+            Converts message to human readable string with provided indent
+            </summary>
+        </member>
+        <member name="T:Impinj.STP.SerializationJob">
+            <summary>
+            What to write and whether to set passwords and lock the tag. 
+            </summary>
+        </member>
+        <member name="M:Impinj.STP.SerializationJob.ToString">
+            <summary>
+            Converts message to human readable string
+            </summary>
+        </member>
+        <member name="M:Impinj.STP.SerializationJob.ToString(System.String)">
+            <summary>
+            Converts message to human readable string with provided indent
+            </summary>
+        </member>
+        <member name="P:Impinj.STP.SerializationJob.OperationQuantity">
+            <summary>
+            NOT YET SUPPORTED 
+            </summary>
+        </member>
+        <member name="P:Impinj.STP.SerializationJob.BlockpermalockConfig">
+            <summary>
+            NOT YET SUPPORTED 
+            </summary>
+        </member>
+        <member name="P:Impinj.STP.SerializationJob.MonzaR6PFeatureConfig">
+            <summary>
+            MonzaR6PFeatureConfig will only be acted upon when encoding a Monza R6P tag.Will be ignored for all other tag types.
+            </summary>
+        </member>
+        <member name="P:Impinj.STP.SerializationJob.MonzaS6CFeatureConfig">
+            <summary>
+            MonzaS6CFeatureConfig will only be acted upon when encoding a Monza S6C tag.Will be ignored for all other tag types.
+            </summary>
+        </member>
+        <member name="P:Impinj.STP.SerializationJob.MonzaR6FeatureConfig">
+            <summary>
+            MonzaR6FeatureConfig will only be acted upon when encoding a Monza R6 tag.Will be ignored for all other tag types.
+            </summary>
+        </member>
+        <member name="P:Impinj.STP.SerializationJob.MonzaR6AFeatureConfig">
+            <summary>
+            MonzaR6AFeatureConfig will only be acted upon when encoding a Monza R6A tag.Will be ignored for all other tag types.
+            </summary>
+        </member>
+        <member name="T:Impinj.STP.PCWord">
+            <summary>
+            EPC PC word, see Gen2 specification for packing of bits 
+            </summary>
+        </member>
+        <member name="M:Impinj.STP.PCWord.ToString">
+            <summary>
+            Converts message to human readable string
+            </summary>
+        </member>
+        <member name="M:Impinj.STP.PCWord.ToString(System.String)">
+            <summary>
+            Converts message to human readable string with provided indent
+            </summary>
+        </member>
+        <member name="P:Impinj.STP.PCWord.Data">
+            <summary>
+            32 bit PC Word. 
+            </summary>
+        </member>
+        <member name="P:Impinj.STP.PCWord.Mask">
+            <summary>
+            DEPRECATED 
+            </summary>
+        </member>
+        <member name="T:Impinj.STP.EPCMemory">
+            <summary>
+            Describes the EPC memory of a tag. 
+            </summary>
+        </member>
+        <member name="M:Impinj.STP.EPCMemory.ToString">
+            <summary>
+            Converts message to human readable string
+            </summary>
+        </member>
+        <member name="M:Impinj.STP.EPCMemory.ToString(System.String)">
+            <summary>
+            Converts message to human readable string with provided indent
+            </summary>
+        </member>
+        <member name="P:Impinj.STP.EPCMemory.Mask">
+            <summary>
+            Bit mask permitting read-modify-write of the existing EPC data. For each bit use a '1' to update/write new EPC bit and a '0' to keep the existing EPC bit. The default is to update the entire EPC (96 bits). 
+            </summary>
+        </member>
+        <member name="P:Impinj.STP.EPCMemory.PcWord">
+            <summary>
+            Defines the PC bits (hence the inventoried EPC length). 
+            </summary>
+        </member>
+        <member name="T:Impinj.STP.Serialization">
+            <summary>
+            How serial numbers are determined. 
+            </summary>
+        </member>
+        <member name="M:Impinj.STP.Serialization.ToString">
+            <summary>
+            Converts message to human readable string
+            </summary>
+        </member>
+        <member name="M:Impinj.STP.Serialization.ToString(System.String)">
+            <summary>
+            Converts message to human readable string with provided indent
+            </summary>
+        </member>
+        <member name="P:Impinj.STP.Serialization.SerializationBits">
+            <summary>
+            Length of serial number to generate e.g. 38-bits 
+            </summary>
+        </member>
+        <member name="P:Impinj.STP.Serialization.MonzaSelfSerialization">
+            <summary>
+            Monza Self-Serialization between 34-bits and 96-bits in length. 
+            </summary>
+        </member>
+        <member name="P:Impinj.STP.Serialization.SerialNumberRange">
+            <summary>
+            Serial Number Range can be up to 496-bits or full length of EPC(pad left with zeros). 
+            </summary>
+        </member>
+        <member name="T:Impinj.STP.MonzaSelfSerialization">
+            <summary>
+            Monza Self-Serialization between 34-bits and 96-bits in length. 
+            </summary>
+        </member>
+        <member name="M:Impinj.STP.MonzaSelfSerialization.ToString">
+            <summary>
+            Converts message to human readable string
+            </summary>
+        </member>
+        <member name="M:Impinj.STP.MonzaSelfSerialization.ToString(System.String)">
+            <summary>
+            Converts message to human readable string with provided indent
+            </summary>
+        </member>
+        <member name="P:Impinj.STP.MonzaSelfSerialization.SerializationPrefix">
+            <summary>
+            Up to a 4-bit prefix, always left most MSB of 38-bit serial number, e.g. "10". 
+            </summary>
+        </member>
+        <member name="T:Impinj.STP.SerialNumberRange">
+            <summary>
+            Serial number range can be up to 496-bits or full length of EPC (pad left with zeros) 
+            </summary>
+        </member>
+        <member name="M:Impinj.STP.SerialNumberRange.ToString">
+            <summary>
+            Converts message to human readable string
+            </summary>
+        </member>
+        <member name="M:Impinj.STP.SerialNumberRange.ToString(System.String)">
+            <summary>
+            Converts message to human readable string with provided indent
+            </summary>
+        </member>
+        <member name="M:Impinj.STP.UserMemory.ToString">
+            <summary>
+            Converts message to human readable string
+            </summary>
+        </member>
+        <member name="M:Impinj.STP.UserMemory.ToString(System.String)">
+            <summary>
+            Converts message to human readable string with provided indent
+            </summary>
+        </member>
+        <member name="P:Impinj.STP.UserMemory.Data">
+            <summary>
+            data length must be a multiple of 16-bits, used in Encode and Verify modes 
+            </summary>
+        </member>
+        <member name="P:Impinj.STP.UserMemory.Mask">
+            <summary>
+            DEPRECATED 
+            </summary>
+        </member>
+        <member name="P:Impinj.STP.UserMemory.WordOffset">
+            <summary>
+            If you don't want to start the data the beginning of memory, specify this offset so that the data and mask start at your specifiedword offset. 
+            </summary>
+        </member>
+        <member name="P:Impinj.STP.UserMemory.WordCountInv">
+            <summary>
+            Number of words to read, used in Inventory mode,the default of 0 means don't ready anything. 
+            </summary>
+        </member>
+        <member name="T:Impinj.STP.Password">
+            <summary>
+            A password for accessing, securing, or locking a tag. 
+            </summary>
+        </member>
+        <member name="M:Impinj.STP.Password.ToString">
+            <summary>
+            Converts message to human readable string
+            </summary>
+        </member>
+        <member name="M:Impinj.STP.Password.ToString(System.String)">
+            <summary>
+            Converts message to human readable string with provided indent
+            </summary>
+        </member>
+        <member name="P:Impinj.STP.Password.Data">
+            <summary>
+            A 32-bit password or passcode for Hash with TID as salt. 
+            </summary>
+        </member>
+        <member name="T:Impinj.STP.LockConfig">
+            <summary>
+            The Gen 2 lock payload. 
+            </summary>
+        </member>
+        <member name="M:Impinj.STP.LockConfig.ToString">
+            <summary>
+            Converts message to human readable string
+            </summary>
+        </member>
+        <member name="M:Impinj.STP.LockConfig.ToString(System.String)">
+            <summary>
+            Converts message to human readable string with provided indent
+            </summary>
+        </member>
+        <member name="P:Impinj.STP.LockConfig.LockConfigPayload">
+            <summary>
+            A binary string representation of the 20-bit Gen 2 lock command payload. 
+            </summary>
+        </member>
+        <member name="T:Impinj.STP.BlockPermalockConfig">
+            <summary>
+            Gen 2 BlockPermalock command (BlockPtr, BlockRange) on User Memory Bank - Read/Permalock behavior. 
+            </summary>
+        </member>
+        <member name="M:Impinj.STP.BlockPermalockConfig.ToString">
+            <summary>
+            Converts message to human readable string
+            </summary>
+        </member>
+        <member name="M:Impinj.STP.BlockPermalockConfig.ToString(System.String)">
+            <summary>
+            Converts message to human readable string with provided indent
+            </summary>
+        </member>
+        <member name="P:Impinj.STP.BlockPermalockConfig.BlockPointer">
+            <summary>
+            The starting address for BlockMask in units of 16-bit blocks. 
+            </summary>
+        </member>
+        <member name="P:Impinj.STP.BlockPermalockConfig.BlockMask">
+            <summary>
+            The blocks to lock, starting at BlockPointer and ending ((16*(BlockMask array length)) - 1) blocks later. 
+            </summary>
+        </member>
+        <member name="T:Impinj.STP.MonzaR6PFeatureConfig">
+            <summary>
+            Tag specific feature configuration for Monza R6P tags.All three features must be specified.For further details, see:https://support.impinj.com/hc/en-us/articles/204793258-Monza-R6-P-Product-Datasheet
+            </summary>
+        </member>
+        <member name="M:Impinj.STP.MonzaR6PFeatureConfig.ToString">
+            <summary>
+            Converts message to human readable string
+            </summary>
+        </member>
+        <member name="M:Impinj.STP.MonzaR6PFeatureConfig.ToString(System.String)">
+            <summary>
+            Converts message to human readable string with provided indent
+            </summary>
+        </member>
+        <member name="P:Impinj.STP.MonzaR6PFeatureConfig.EnableAutoTune">
+            <summary>
+            Enable Auto-tune 
+            </summary>
+        </member>
+        <member name="P:Impinj.STP.MonzaR6PFeatureConfig.EnableShortRangeMode">
+            <summary>
+            Enable Short-Range mode 
+            </summary>
+        </member>
+        <member name="P:Impinj.STP.MonzaR6PFeatureConfig.MemoryMapConfig">
+            <summary>
+            Configure tag memory map 
+            </summary>
+        </member>
+        <member name="T:Impinj.STP.MonzaS6CFeatureConfig">
+            <summary>
+            Tag specific feature configuration for Monza S6C tags.Both features must be specified.For further details, see:https://support.impinj.com/hc/en-us/articles/205744047-Monza-S6-C-Product-Datasheet
+            </summary>
+        </member>
+        <member name="M:Impinj.STP.MonzaS6CFeatureConfig.ToString">
+            <summary>
+            Converts message to human readable string
+            </summary>
+        </member>
+        <member name="M:Impinj.STP.MonzaS6CFeatureConfig.ToString(System.String)">
+            <summary>
+            Converts message to human readable string with provided indent
+            </summary>
+        </member>
+        <member name="P:Impinj.STP.MonzaS6CFeatureConfig.EnableAutoTune">
+            <summary>
+            Enable Auto-tune 
+            </summary>
+        </member>
+        <member name="P:Impinj.STP.MonzaS6CFeatureConfig.EnableShortRangeMode">
+            <summary>
+            Enable Short-Range mode 
+            </summary>
+        </member>
+        <member name="T:Impinj.STP.MonzaR6FeatureConfig">
+            <summary>
+            Tag specific feature configuration for Monza R6 tags.For further details, see:https://support.impinj.com/hc/en-us/articles/202765328-Monza-R6-Product-Datasheet
+            </summary>
+        </member>
+        <member name="M:Impinj.STP.MonzaR6FeatureConfig.ToString">
+            <summary>
+            Converts message to human readable string
+            </summary>
+        </member>
+        <member name="M:Impinj.STP.MonzaR6FeatureConfig.ToString(System.String)">
+            <summary>
+            Converts message to human readable string with provided indent
+            </summary>
+        </member>
+        <member name="P:Impinj.STP.MonzaR6FeatureConfig.EnableAutoTune">
+            <summary>
+            Enable Auto-tune 
+            </summary>
+        </member>
+        <member name="T:Impinj.STP.MonzaR6AFeatureConfig">
+            <summary>
+            Tag specific feature configuration for Monza R6-A tags.For further details, see:https://support.impinj.com/hc/en-us/articles/115001376564-Monza-R6-A-Product-Brief-Datasheet
+            </summary>
+        </member>
+        <member name="M:Impinj.STP.MonzaR6AFeatureConfig.ToString">
+            <summary>
+            Converts message to human readable string
+            </summary>
+        </member>
+        <member name="M:Impinj.STP.MonzaR6AFeatureConfig.ToString(System.String)">
+            <summary>
+            Converts message to human readable string with provided indent
+            </summary>
+        </member>
+        <member name="P:Impinj.STP.MonzaR6AFeatureConfig.EnableAutoTune">
+            <summary>
+            Enable Auto-tune 
+            </summary>
+        </member>
+        <member name="P:Impinj.STP.MonzaR6AFeatureConfig.EnableShortRangeMode">
+            <summary>
+            Enable Short-Range mode 
+            </summary>
+        </member>
+        <member name="T:Impinj.STP.TidTableEntry">
+            <summary>
+            Describes the operation to perform on a single tag. 
+            </summary>
+        </member>
+        <member name="M:Impinj.STP.TidTableEntry.ToString">
+            <summary>
+            Converts message to human readable string
+            </summary>
+        </member>
+        <member name="M:Impinj.STP.TidTableEntry.ToString(System.String)">
+            <summary>
+            Converts message to human readable string with provided indent
+            </summary>
+        </member>
+        <member name="P:Impinj.STP.TidTableEntry.Tid">
+            <summary>
+            The TID of the tag for these encoding actions to be performed on. 
+            </summary>
+        </member>
+        <member name="P:Impinj.STP.TidTableEntry.BlockpermalockConfig">
+            <summary>
+            NOT YET SUPPORTED 
+            </summary>
+        </member>
+        <member name="P:Impinj.STP.TidTableEntry.MonzaR6PFeatureConfig">
+            <summary>
+            MonzaR6PFeatureConfig will only be acted upon when encoding a Monza R6P tag.Will be ignored for all other tag types.
+            </summary>
+        </member>
+        <member name="P:Impinj.STP.TidTableEntry.MonzaS6CFeatureConfig">
+            <summary>
+            MonzaS6CFeatureConfig will only be acted upon when encoding a Monza S6C tag.Will be ignored for all other tag types.
+            </summary>
+        </member>
+        <member name="P:Impinj.STP.TidTableEntry.MonzaR6FeatureConfig">
+            <summary>
+            MonzaR6FeatureConfig will only be acted upon when encoding a Monza R6 tag.Will be ignored for all other tag types.
+            </summary>
+        </member>
+        <member name="P:Impinj.STP.TidTableEntry.MonzaR6AFeatureConfig">
+            <summary>
+            MonzaR6AFeatureConfig will only be acted upon when encoding a Monza R6A tag.Will be ignored for all other tag types.
+            </summary>
+        </member>
+        <member name="T:Impinj.STP.TidTableEntries">
+            <summary>
+            A list of tag operations to perform. 
+            </summary>
+        </member>
+        <member name="M:Impinj.STP.TidTableEntries.ToString">
+            <summary>
+            Converts message to human readable string
+            </summary>
+        </member>
+        <member name="M:Impinj.STP.TidTableEntries.ToString(System.String)">
+            <summary>
+            Converts message to human readable string with provided indent
+            </summary>
+        </member>
+        <member name="M:Impinj.STP.OrderedListEntry.ToString">
+            <summary>
+            Converts message to human readable string
+            </summary>
+        </member>
+        <member name="M:Impinj.STP.OrderedListEntry.ToString(System.String)">
+            <summary>
+            Converts message to human readable string with provided indent
+            </summary>
+        </member>
+        <member name="P:Impinj.STP.OrderedListEntry.BlockpermalockConfig">
+            <summary>
+            NOT YET SUPPORTED 
+            </summary>
+        </member>
+        <member name="P:Impinj.STP.OrderedListEntry.MonzaR6PFeatureConfig">
+            <summary>
+            MonzaR6PFeatureConfig will only be acted upon when encoding a Monza R6P tag.Will be ignored for all other tag types.
+            </summary>
+        </member>
+        <member name="P:Impinj.STP.OrderedListEntry.MonzaS6CFeatureConfig">
+            <summary>
+            MonzaS6CFeatureConfig will only be acted upon when encoding a Monza S6C tag.Will be ignored for all other tag types.
+            </summary>
+        </member>
+        <member name="P:Impinj.STP.OrderedListEntry.MonzaR6FeatureConfig">
+            <summary>
+            MonzaR6FeatureConfig will only be acted upon when encoding a Monza R6 tag.Will be ignored for all other tag types.
+            </summary>
+        </member>
+        <member name="P:Impinj.STP.OrderedListEntry.MonzaR6AFeatureConfig">
+            <summary>
+            MonzaR6AFeatureConfig will only be acted upon when encoding a Monza R6A tag.Will be ignored for all other tag types.
+            </summary>
+        </member>
+        <member name="M:Impinj.STP.OrderedListEntries.ToString">
+            <summary>
+            Converts message to human readable string
+            </summary>
+        </member>
+        <member name="M:Impinj.STP.OrderedListEntries.ToString(System.String)">
+            <summary>
+            Converts message to human readable string with provided indent
+            </summary>
+        </member>
+        <member name="T:Impinj.STP.LowEncodeVolumeEventConfig">
+            <summary>
+            Configuration of Low Encode Volume Events 
+            </summary>
+        </member>
+        <member name="M:Impinj.STP.LowEncodeVolumeEventConfig.ToString">
+            <summary>
+            Converts message to human readable string
+            </summary>
+        </member>
+        <member name="M:Impinj.STP.LowEncodeVolumeEventConfig.ToString(System.String)">
+            <summary>
+            Converts message to human readable string with provided indent
+            </summary>
+        </member>
+        <member name="P:Impinj.STP.LowEncodeVolumeEventConfig.MonzaThreshold">
+            <summary>
+            The threshold at which the device will start sending reports that the remaining Monza encode volume is low. 
+            </summary>
+        </member>
+        <member name="P:Impinj.STP.LowEncodeVolumeEventConfig.NonMonzaThreshold">
+            <summary>
+            The threshold at which the device will start sending reports that the remaining Non Monza encode volume is low. 
+            </summary>
+        </member>
+        <member name="P:Impinj.STP.LowEncodeVolumeEventConfig.MonzaReminderPeriod">
+            <summary>
+            The period at which the the device will send a reminder report that the remaining Monza encode volume is low. The value is the number of attempted encodes since last report. Set to 0 to disable reminders. 
+            </summary>
+        </member>
+        <member name="P:Impinj.STP.LowEncodeVolumeEventConfig.NonMonzaReminderPeriod">
+            <summary>
+            The period at which the the device will send a reminder report that the remaining Non Monza encode volume is low. The value is the number of attempted encodes since last report. Set to 0 to disable reminders. 
+            </summary>
+        </member>
+        <member name="T:Impinj.STP.DeviceEventConfig">
+            <summary>
+            Enable or disable classes of reports. 
+            </summary>
+        </member>
+        <member name="M:Impinj.STP.DeviceEventConfig.ToString">
+            <summary>
+            Converts message to human readable string
+            </summary>
+        </member>
+        <member name="M:Impinj.STP.DeviceEventConfig.ToString(System.String)">
+            <summary>
+            Converts message to human readable string with provided indent
+            </summary>
+        </member>
+        <member name="T:Impinj.STP.OperationSummaryReport">
+            <summary>
+            If enabled in ReportConfig_, this report is sent when the device operation stops. 
+            </summary>
+        </member>
+        <member name="M:Impinj.STP.OperationSummaryReport.ToString">
+            <summary>
+            Converts message to human readable string
+            </summary>
+        </member>
+        <member name="M:Impinj.STP.OperationSummaryReport.ToString(System.String)">
+            <summary>
+            Converts message to human readable string with provided indent
+            </summary>
+        </member>
+        <member name="T:Impinj.STP.TagOperationReport">
+            <summary>
+            Timestamp, antenna id, frequency, RSSI should be last values on lastattempt. All \*_result bools should be included and set to true when they are enabled in the OperationResponsibility and confirmed as complete. 
+            </summary>
+        </member>
+        <member name="M:Impinj.STP.TagOperationReport.ToString">
+            <summary>
+            Converts message to human readable string
+            </summary>
+        </member>
+        <member name="M:Impinj.STP.TagOperationReport.ToString(System.String)">
+            <summary>
+            Converts message to human readable string with provided indent
+            </summary>
+        </member>
+        <member name="P:Impinj.STP.TagOperationReport.Tid">
+            <summary>
+            big endian 16-bit words representing the TID. 
+            </summary>
+        </member>
+        <member name="P:Impinj.STP.TagOperationReport.Epc">
+            <summary>
+            big endian 16-bit words representing the EPC. 
+            </summary>
+        </member>
+        <member name="P:Impinj.STP.TagOperationReport.UserMemoryInv">
+            <summary>
+            big endian 16-bit words representing the user memory. Used in Inventory mode, note that 'user_memory_result' is unrelated. 
+            </summary>
+        </member>
+        <member name="P:Impinj.STP.TagOperationReport.Frequency">
+            <summary>
+            Units are kHz 
+            </summary>
+        </member>
+        <member name="P:Impinj.STP.TagOperationReport.Rssi">
+            <summary>
+            RSSI of the Ack response (EPC) in units of dBm * 100.  
+            </summary>
+        </member>
+        <member name="M:Impinj.STP.CartonContentsTag.ToString">
+            <summary>
+            Converts message to human readable string
+            </summary>
+        </member>
+        <member name="M:Impinj.STP.CartonContentsTag.ToString(System.String)">
+            <summary>
+            Converts message to human readable string with provided indent
+            </summary>
+        </member>
+        <member name="P:Impinj.STP.CartonContentsTag.Confidence">
+            <summary>
+            Confidence is given as a value between 0 and 100 (inclusive) toindicate whether the given tag is in the carton for which this reportcorresponds 
+            </summary>
+        </member>
+        <member name="P:Impinj.STP.CartonContentsTag.Metric1">
+            <summary>
+            A metric to add color to the confidence 
+            </summary>
+        </member>
+        <member name="P:Impinj.STP.CartonContentsTag.Metric2">
+            <summary>
+            A metric to add color to the confidence 
+            </summary>
+        </member>
+        <member name="P:Impinj.STP.CartonContentsTag.Metric3">
+            <summary>
+            A metric to add color to the confidence 
+            </summary>
+        </member>
+        <member name="M:Impinj.STP.CartonContentsReport.ToString">
+            <summary>
+            Converts message to human readable string
+            </summary>
+        </member>
+        <member name="M:Impinj.STP.CartonContentsReport.ToString(System.String)">
+            <summary>
+            Converts message to human readable string with provided indent
+            </summary>
+        </member>
+        <member name="P:Impinj.STP.CartonContentsReport.EnterTimestamp">
+            <summary>
+            Timestamp of the start trigger 
+            </summary>
+        </member>
+        <member name="P:Impinj.STP.CartonContentsReport.ExitTimestamp">
+            <summary>
+            Timestamp of the stop trigger 
+            </summary>
+        </member>
+        <member name="P:Impinj.STP.CartonContentsReport.CartonSize">
+            <summary>
+            Detected carton size in millimeters 
+            </summary>
+        </member>
+        <member name="P:Impinj.STP.CartonContentsReport.CartonContentsTag">
+            <summary>
+            A list of all tags seen for the duration the carton was betweenthe entry and exit sensors. 
+            </summary>
+        </member>
+        <member name="P:Impinj.STP.CartonContentsReport.StartTimestamp">
+            <summary>
+            DEPRECATED 
+            </summary>
+        </member>
+        <member name="P:Impinj.STP.CartonContentsReport.StopTimestamp">
+            <summary>
+            DEPRECATED 
+            </summary>
+        </member>
+        <member name="M:Impinj.STP.CartonContentsError.ToString">
+            <summary>
+            Converts message to human readable string
+            </summary>
+        </member>
+        <member name="M:Impinj.STP.CartonContentsError.ToString(System.String)">
+            <summary>
+            Converts message to human readable string with provided indent
+            </summary>
+        </member>
+        <member name="M:Impinj.STP.TagModeMetrics.ToString">
+            <summary>
+            Converts message to human readable string
+            </summary>
+        </member>
+        <member name="M:Impinj.STP.TagModeMetrics.ToString(System.String)">
+            <summary>
+            Converts message to human readable string with provided indent
+            </summary>
+        </member>
+        <member name="M:Impinj.STP.TagMetrics.ToString">
+            <summary>
+            Converts message to human readable string
+            </summary>
+        </member>
+        <member name="M:Impinj.STP.TagMetrics.ToString(System.String)">
+            <summary>
+            Converts message to human readable string with provided indent
+            </summary>
+        </member>
+        <member name="M:Impinj.STP.InterDeviceCommunicationMetrics.ToString">
+            <summary>
+            Converts message to human readable string
+            </summary>
+        </member>
+        <member name="M:Impinj.STP.InterDeviceCommunicationMetrics.ToString(System.String)">
+            <summary>
+            Converts message to human readable string with provided indent
+            </summary>
+        </member>
+        <member name="M:Impinj.STP.OperationMetrics.ToString">
+            <summary>
+            Converts message to human readable string
+            </summary>
+        </member>
+        <member name="M:Impinj.STP.OperationMetrics.ToString(System.String)">
+            <summary>
+            Converts message to human readable string with provided indent
+            </summary>
+        </member>
+        <member name="M:Impinj.STP.OperationDataDetails.ToString">
+            <summary>
+            Converts message to human readable string
+            </summary>
+        </member>
+        <member name="M:Impinj.STP.OperationDataDetails.ToString(System.String)">
+            <summary>
+            Converts message to human readable string with provided indent
+            </summary>
+        </member>
+        <member name="M:Impinj.STP.OperationData.ToString">
+            <summary>
+            Converts message to human readable string
+            </summary>
+        </member>
+        <member name="M:Impinj.STP.OperationData.ToString(System.String)">
+            <summary>
+            Converts message to human readable string with provided indent
+            </summary>
+        </member>
+        <member name="M:Impinj.STP.LicenseKey.ToString">
+            <summary>
+            Converts message to human readable string
+            </summary>
+        </member>
+        <member name="M:Impinj.STP.LicenseKey.ToString(System.String)">
+            <summary>
+            Converts message to human readable string with provided indent
+            </summary>
+        </member>
+        <member name="T:Impinj.STP.OperationEvent">
+            <summary>
+            **NOT YET SUPPORTED** A change in the device operating state driven by completion of the tag operation or a start or stop driven by GPI. 
+            </summary>
+        </member>
+        <member name="M:Impinj.STP.OperationEvent.ToString">
+            <summary>
+            Converts message to human readable string
+            </summary>
+        </member>
+        <member name="M:Impinj.STP.OperationEvent.ToString(System.String)">
+            <summary>
+            Converts message to human readable string with provided indent
+            </summary>
+        </member>
+        <member name="T:Impinj.STP.DeviceExceptionEvent">
+            <summary>
+            **NOT YET SUPPORTED** 
+            </summary>
+        </member>
+        <member name="M:Impinj.STP.DeviceExceptionEvent.ToString">
+            <summary>
+            Converts message to human readable string
+            </summary>
+        </member>
+        <member name="M:Impinj.STP.DeviceExceptionEvent.ToString(System.String)">
+            <summary>
+            Converts message to human readable string with provided indent
+            </summary>
+        </member>
+        <member name="T:Impinj.STP.GpiEvent">
+            <summary>
+            Generated when any of the gpi inputs change 
+            </summary>
+        </member>
+        <member name="M:Impinj.STP.GpiEvent.ToString">
+            <summary>
+            Converts message to human readable string
+            </summary>
+        </member>
+        <member name="M:Impinj.STP.GpiEvent.ToString(System.String)">
+            <summary>
+            Converts message to human readable string with provided indent
+            </summary>
+        </member>
+        <member name="T:Impinj.STP.LowEncodeVolumeEvent">
+            <summary>
+            Generated when the remaining number of encodes falls below a threshold 
+            </summary>
+        </member>
+        <member name="M:Impinj.STP.LowEncodeVolumeEvent.ToString">
+            <summary>
+            Converts message to human readable string
+            </summary>
+        </member>
+        <member name="M:Impinj.STP.LowEncodeVolumeEvent.ToString(System.String)">
+            <summary>
+            Converts message to human readable string with provided indent
+            </summary>
+        </member>
+        <member name="M:Impinj.STP.DeviceEventReport.ToString">
+            <summary>
+            Converts message to human readable string
+            </summary>
+        </member>
+        <member name="M:Impinj.STP.DeviceEventReport.ToString(System.String)">
+            <summary>
+            Converts message to human readable string with provided indent
+            </summary>
+        </member>
+        <member name="T:Impinj.STP.GetAntennaConfigCommand">
+            <summary>
+            Request the antenna configuration. 
+            </summary>
+        </member>
+        <member name="M:Impinj.STP.GetAntennaConfigCommand.ToString">
+            <summary>
+            Converts message to human readable string
+            </summary>
+        </member>
+        <member name="M:Impinj.STP.GetAntennaConfigCommand.ToString(System.String)">
+            <summary>
+            Converts message to human readable string with provided indent
+            </summary>
+        </member>
+        <member name="T:Impinj.STP.SetAntennaConfigCommand">
+            <summary>
+            Set the configuration for one or more antennas. 
+            </summary>
+        </member>
+        <member name="M:Impinj.STP.SetAntennaConfigCommand.ToString">
+            <summary>
+            Converts message to human readable string
+            </summary>
+        </member>
+        <member name="M:Impinj.STP.SetAntennaConfigCommand.ToString(System.String)">
+            <summary>
+            Converts message to human readable string with provided indent
+            </summary>
+        </member>
+        <member name="T:Impinj.STP.StartCommand">
+            <summary>
+            Start the encode or inventory operation. 
+            </summary>
+        </member>
+        <member name="M:Impinj.STP.StartCommand.ToString">
+            <summary>
+            Converts message to human readable string
+            </summary>
+        </member>
+        <member name="M:Impinj.STP.StartCommand.ToString(System.String)">
+            <summary>
+            Converts message to human readable string with provided indent
+            </summary>
+        </member>
+        <member name="T:Impinj.STP.SetDeviceConfigCommand">
+            <summary>
+            Set the device's behavior. 
+            </summary>
+        </member>
+        <member name="M:Impinj.STP.SetDeviceConfigCommand.ToString">
+            <summary>
+            Converts message to human readable string
+            </summary>
+        </member>
+        <member name="M:Impinj.STP.SetDeviceConfigCommand.ToString(System.String)">
+            <summary>
+            Converts message to human readable string with provided indent
+            </summary>
+        </member>
+        <member name="T:Impinj.STP.GetDeviceConfigCommand">
+            <summary>
+            Get the DeviceConfig_ 
+            </summary>
+        </member>
+        <member name="M:Impinj.STP.GetDeviceConfigCommand.ToString">
+            <summary>
+            Converts message to human readable string
+            </summary>
+        </member>
+        <member name="M:Impinj.STP.GetDeviceConfigCommand.ToString(System.String)">
+            <summary>
+            Converts message to human readable string with provided indent
+            </summary>
+        </member>
+        <member name="T:Impinj.STP.EngageCommand">
+            <summary>
+            Tell the device to do any preparation possible before a StartCommand_ is sent so that the operation begins as soon after the start as possible. 
+            </summary>
+        </member>
+        <member name="M:Impinj.STP.EngageCommand.ToString">
+            <summary>
+            Converts message to human readable string
+            </summary>
+        </member>
+        <member name="M:Impinj.STP.EngageCommand.ToString(System.String)">
+            <summary>
+            Converts message to human readable string with provided indent
+            </summary>
+        </member>
+        <member name="T:Impinj.STP.DisengageCommand">
+            <summary>
+            Called after StopCommand_, return the device to its initial state. 
+            </summary>
+        </member>
+        <member name="M:Impinj.STP.DisengageCommand.ToString">
+            <summary>
+            Converts message to human readable string
+            </summary>
+        </member>
+        <member name="M:Impinj.STP.DisengageCommand.ToString(System.String)">
+            <summary>
+            Converts message to human readable string with provided indent
+            </summary>
+        </member>
+        <member name="M:Impinj.STP.SetOperationResultGpoCommand.ToString">
+            <summary>
+            Converts message to human readable string
+            </summary>
+        </member>
+        <member name="M:Impinj.STP.SetOperationResultGpoCommand.ToString(System.String)">
+            <summary>
+            Converts message to human readable string with provided indent
+            </summary>
+        </member>
+        <member name="T:Impinj.STP.AddSerializationJobCommand">
+            <summary>
+            Set the SerializationJob_ 
+            </summary>
+        </member>
+        <member name="M:Impinj.STP.AddSerializationJobCommand.ToString">
+            <summary>
+            Converts message to human readable string
+            </summary>
+        </member>
+        <member name="M:Impinj.STP.AddSerializationJobCommand.ToString(System.String)">
+            <summary>
+            Converts message to human readable string with provided indent
+            </summary>
+        </member>
+        <member name="T:Impinj.STP.RemoveSerializationJobCommand">
+            <summary>
+            **NOT YET SUPPORTED** 
+            </summary>
+        </member>
+        <member name="M:Impinj.STP.RemoveSerializationJobCommand.ToString">
+            <summary>
+            Converts message to human readable string
+            </summary>
+        </member>
+        <member name="M:Impinj.STP.RemoveSerializationJobCommand.ToString(System.String)">
+            <summary>
+            Converts message to human readable string with provided indent
+            </summary>
+        </member>
+        <member name="M:Impinj.STP.SetInventoryJobCommand.ToString">
+            <summary>
+            Converts message to human readable string
+            </summary>
+        </member>
+        <member name="M:Impinj.STP.SetInventoryJobCommand.ToString(System.String)">
+            <summary>
+            Converts message to human readable string with provided indent
+            </summary>
+        </member>
+        <member name="M:Impinj.STP.SetCartonContentsJobCommand.ToString">
+            <summary>
+            Converts message to human readable string
+            </summary>
+        </member>
+        <member name="M:Impinj.STP.SetCartonContentsJobCommand.ToString(System.String)">
+            <summary>
+            Converts message to human readable string with provided indent
+            </summary>
+        </member>
+        <member name="M:Impinj.STP.GetOperationDataCommand.ToString">
+            <summary>
+            Converts message to human readable string
+            </summary>
+        </member>
+        <member name="M:Impinj.STP.GetOperationDataCommand.ToString(System.String)">
+            <summary>
+            Converts message to human readable string with provided indent
+            </summary>
+        </member>
+        <member name="M:Impinj.STP.AddLicenseKeyCommand.ToString">
+            <summary>
+            Converts message to human readable string
+            </summary>
+        </member>
+        <member name="M:Impinj.STP.AddLicenseKeyCommand.ToString(System.String)">
+            <summary>
+            Converts message to human readable string with provided indent
+            </summary>
+        </member>
+        <member name="T:Impinj.STP.AddTidTableEntriesCommand">
+            <summary>
+            Send a list of tag operations to perform. 
+            </summary>
+        </member>
+        <member name="M:Impinj.STP.AddTidTableEntriesCommand.ToString">
+            <summary>
+            Converts message to human readable string
+            </summary>
+        </member>
+        <member name="M:Impinj.STP.AddTidTableEntriesCommand.ToString(System.String)">
+            <summary>
+            Converts message to human readable string with provided indent
+            </summary>
+        </member>
+        <member name="T:Impinj.STP.AddOrderedListEntriesCommand">
+            <summary>
+            Send a list of tag operations to perform. 
+            </summary>
+        </member>
+        <member name="M:Impinj.STP.AddOrderedListEntriesCommand.ToString">
+            <summary>
+            Converts message to human readable string
+            </summary>
+        </member>
+        <member name="M:Impinj.STP.AddOrderedListEntriesCommand.ToString(System.String)">
+            <summary>
+            Converts message to human readable string with provided indent
+            </summary>
+        </member>
+        <member name="T:Impinj.STP.StartResp">
+            <summary>
+            The reply to StartCommand_. 
+            </summary>
+        </member>
+        <member name="M:Impinj.STP.StartResp.ToString">
+            <summary>
+            Converts message to human readable string
+            </summary>
+        </member>
+        <member name="M:Impinj.STP.StartResp.ToString(System.String)">
+            <summary>
+            Converts message to human readable string with provided indent
+            </summary>
+        </member>
+        <member name="T:Impinj.STP.SetDeviceConfigResp">
+            <summary>
+            See SetDeviceConfigCommand_. 
+            </summary>
+        </member>
+        <member name="M:Impinj.STP.SetDeviceConfigResp.ToString">
+            <summary>
+            Converts message to human readable string
+            </summary>
+        </member>
+        <member name="M:Impinj.STP.SetDeviceConfigResp.ToString(System.String)">
+            <summary>
+            Converts message to human readable string with provided indent
+            </summary>
+        </member>
+        <member name="T:Impinj.STP.GetDeviceConfigResp">
+            <summary>
+            Return the device configuration.  See GetDeviceConfigCommand_. 
+            </summary>
+        </member>
+        <member name="M:Impinj.STP.GetDeviceConfigResp.ToString">
+            <summary>
+            Converts message to human readable string
+            </summary>
+        </member>
+        <member name="M:Impinj.STP.GetDeviceConfigResp.ToString(System.String)">
+            <summary>
+            Converts message to human readable string with provided indent
+            </summary>
+        </member>
+        <member name="T:Impinj.STP.SetAntennaConfigResp">
+            <summary>
+            See SetAntennaConfigCommand_. 
+            </summary>
+        </member>
+        <member name="M:Impinj.STP.SetAntennaConfigResp.ToString">
+            <summary>
+            Converts message to human readable string
+            </summary>
+        </member>
+        <member name="M:Impinj.STP.SetAntennaConfigResp.ToString(System.String)">
+            <summary>
+            Converts message to human readable string with provided indent
+            </summary>
+        </member>
+        <member name="T:Impinj.STP.GetAntennaConfigResp">
+            <summary>
+            Return the configuration which was set on all antennas. 
+            </summary>
+        </member>
+        <member name="M:Impinj.STP.GetAntennaConfigResp.ToString">
+            <summary>
+            Converts message to human readable string
+            </summary>
+        </member>
+        <member name="M:Impinj.STP.GetAntennaConfigResp.ToString(System.String)">
+            <summary>
+            Converts message to human readable string with provided indent
+            </summary>
+        </member>
+        <member name="T:Impinj.STP.EngageResp">
+            <summary>
+            See EngageCommand_. 
+            </summary>
+        </member>
+        <member name="M:Impinj.STP.EngageResp.ToString">
+            <summary>
+            Converts message to human readable string
+            </summary>
+        </member>
+        <member name="M:Impinj.STP.EngageResp.ToString(System.String)">
+            <summary>
+            Converts message to human readable string with provided indent
+            </summary>
+        </member>
+        <member name="T:Impinj.STP.DisengageResp">
+            <summary>
+            See DisengageCommand_. 
+            </summary>
+        </member>
+        <member name="M:Impinj.STP.DisengageResp.ToString">
+            <summary>
+            Converts message to human readable string
+            </summary>
+        </member>
+        <member name="M:Impinj.STP.DisengageResp.ToString(System.String)">
+            <summary>
+            Converts message to human readable string with provided indent
+            </summary>
+        </member>
+        <member name="T:Impinj.STP.SetOperationResultGpoResp">
+            <summary>
+            See SetOperationResultGPOCommand_. 
+            </summary>
+        </member>
+        <member name="M:Impinj.STP.SetOperationResultGpoResp.ToString">
+            <summary>
+            Converts message to human readable string
+            </summary>
+        </member>
+        <member name="M:Impinj.STP.SetOperationResultGpoResp.ToString(System.String)">
+            <summary>
+            Converts message to human readable string with provided indent
+            </summary>
+        </member>
+        <member name="T:Impinj.STP.AddSerializationJobResp">
+            <summary>
+            See AddSerializationJobCommand_. 
+            </summary>
+        </member>
+        <member name="M:Impinj.STP.AddSerializationJobResp.ToString">
+            <summary>
+            Converts message to human readable string
+            </summary>
+        </member>
+        <member name="M:Impinj.STP.AddSerializationJobResp.ToString(System.String)">
+            <summary>
+            Converts message to human readable string with provided indent
+            </summary>
+        </member>
+        <member name="T:Impinj.STP.RemoveSerializationJobResp">
+            <summary>
+            **NOT YET SUPPORTED** 
+            </summary>
+        </member>
+        <member name="M:Impinj.STP.RemoveSerializationJobResp.ToString">
+            <summary>
+            Converts message to human readable string
+            </summary>
+        </member>
+        <member name="M:Impinj.STP.RemoveSerializationJobResp.ToString(System.String)">
+            <summary>
+            Converts message to human readable string with provided indent
+            </summary>
+        </member>
+        <member name="M:Impinj.STP.SetInventoryJobResp.ToString">
+            <summary>
+            Converts message to human readable string
+            </summary>
+        </member>
+        <member name="M:Impinj.STP.SetInventoryJobResp.ToString(System.String)">
+            <summary>
+            Converts message to human readable string with provided indent
+            </summary>
+        </member>
+        <member name="M:Impinj.STP.SetCartonContentsJobResp.ToString">
+            <summary>
+            Converts message to human readable string
+            </summary>
+        </member>
+        <member name="M:Impinj.STP.SetCartonContentsJobResp.ToString(System.String)">
+            <summary>
+            Converts message to human readable string with provided indent
+            </summary>
+        </member>
+        <member name="M:Impinj.STP.GetOperationDataResp.ToString">
+            <summary>
+            Converts message to human readable string
+            </summary>
+        </member>
+        <member name="M:Impinj.STP.GetOperationDataResp.ToString(System.String)">
+            <summary>
+            Converts message to human readable string with provided indent
+            </summary>
+        </member>
+        <member name="M:Impinj.STP.AddLicenseKeyResp.ToString">
+            <summary>
+            Converts message to human readable string
+            </summary>
+        </member>
+        <member name="M:Impinj.STP.AddLicenseKeyResp.ToString(System.String)">
+            <summary>
+            Converts message to human readable string with provided indent
+            </summary>
+        </member>
+        <member name="T:Impinj.STP.AddTidTableEntriesResp">
+            <summary>
+            Returns SUCCESS if the TID entry was added.  See AddTIDTableEntriesCommand_. 
+            </summary>
+        </member>
+        <member name="M:Impinj.STP.AddTidTableEntriesResp.ToString">
+            <summary>
+            Converts message to human readable string
+            </summary>
+        </member>
+        <member name="M:Impinj.STP.AddTidTableEntriesResp.ToString(System.String)">
+            <summary>
+            Converts message to human readable string with provided indent
+            </summary>
+        </member>
+        <member name="T:Impinj.STP.AddOrderedListEntriesResp">
+            <summary>
+            Returns SUCCESS if the OrderedListEntries_ were added. See AddOrderedListEntriesCommand_. 
+            </summary>
+        </member>
+        <member name="M:Impinj.STP.AddOrderedListEntriesResp.ToString">
+            <summary>
+            Converts message to human readable string
+            </summary>
+        </member>
+        <member name="M:Impinj.STP.AddOrderedListEntriesResp.ToString(System.String)">
+            <summary>
+            Converts message to human readable string with provided indent
+            </summary>
+        </member>
+        <member name="M:Impinj.STP.Command.ToString">
+            <summary>
+            Converts message to human readable string
+            </summary>
+        </member>
+        <member name="M:Impinj.STP.Command.ToString(System.String)">
+            <summary>
+            Converts message to human readable string with provided indent
+            </summary>
+        </member>
+        <member name="P:Impinj.STP.Command.Connect">
+            <summary>
+            Connect to device. 
+            </summary>
+        </member>
+        <member name="P:Impinj.STP.Command.GetVersionsReader">
+            <summary>
+            Return all version information reported by the device and by the host-side library. 
+            </summary>
+        </member>
+        <member name="P:Impinj.STP.Command.Start">
+            <summary>
+            Start the encode or inventory run. The device must be engaged with GPI or by calling engage before starting. 
+            </summary>
+        </member>
+        <member name="P:Impinj.STP.Command.Stop">
+            <summary>
+            Stop the encode or inventory run. The device must be operating. 
+            </summary>
+        </member>
+        <member name="P:Impinj.STP.Command.GetDeviceState">
+            <summary>
+            Get the state (operating, fault, etc.) of the device. Contains a fault description, if any. 
+            </summary>
+        </member>
+        <member name="P:Impinj.STP.Command.SetOperationResultGpo">
+            <summary>
+            When the GPOConfig enable_operation_result_gpo is set false, this command lets the client application set the pass/fail GPO based on its own pass/fail conditions. 
+            </summary>
+        </member>
+        <member name="M:Impinj.STP.Response.ToString">
+            <summary>
+            Converts message to human readable string
+            </summary>
+        </member>
+        <member name="M:Impinj.STP.Response.ToString(System.String)">
+            <summary>
+            Converts message to human readable string with provided indent
+            </summary>
+        </member>
+        <member name="M:Impinj.STP.Report.ToString">
+            <summary>
+            Converts message to human readable string
+            </summary>
+        </member>
+        <member name="M:Impinj.STP.Report.ToString(System.String)">
+            <summary>
+            Converts message to human readable string with provided indent
+            </summary>
+        </member>
+        <member name="M:Impinj.STP.Update.ToString">
+            <summary>
+            Converts message to human readable string
+            </summary>
+        </member>
+        <member name="M:Impinj.STP.Update.ToString(System.String)">
+            <summary>
+            Converts message to human readable string with provided indent
+            </summary>
+        </member>
+        <member name="M:Impinj.STP.Packet.ToString">
+            <summary>
+            Converts message to human readable string
+            </summary>
+        </member>
+        <member name="M:Impinj.STP.Packet.ToString(System.String)">
+            <summary>
+            Converts message to human readable string with provided indent
+            </summary>
+        </member>
+        <member name="F:Impinj.STP.ErrorCode.ERROR_CODE_NETWORK_INIT">
+            <summary>
+            Failure when initializing the device network connection. 
+            </summary>
+        </member>
+        <member name="T:Impinj.STP.VersionType">
+            <summary>
+            The local library or remote device component corresponding to the version. 
+            </summary>
+        </member>
+        <member name="F:Impinj.STP.VersionType.VERSION_TYPE_KODIAK_HOST">
+            <summary>
+            Version of the tool used to create the API on the host. 
+            </summary>
+        </member>
+        <member name="F:Impinj.STP.VersionType.VERSION_TYPE_KODIAK_READER">
+            <summary>
+            Version of the tool used to create the API on the reader. 
+            </summary>
+        </member>
+        <member name="F:Impinj.STP.VersionType.VERSION_TYPE_FRAME_READER">
+            <summary>
+            Version of the protocol used by the reader. 
+            </summary>
+        </member>
+        <member name="F:Impinj.STP.VersionType.VERSION_TYPE_API_HOST">
+            <summary>
+            Version of the API on the host. 
+            </summary>
+        </member>
+        <member name="F:Impinj.STP.VersionType.VERSION_TYPE_API_READER">
+            <summary>
+            Version of the API on the reader. 
+            </summary>
+        </member>
+        <member name="F:Impinj.STP.VersionType.VERSION_TYPE_FIRMWARE">
+            <summary>
+            Version of the reader firmware. 
+            </summary>
+        </member>
+        <member name="F:Impinj.STP.VersionType.VERSION_TYPE_FIRMWARE_CUST">
+            <summary>
+            Version of custom application. 
+            </summary>
+        </member>
+        <member name="F:Impinj.STP.VersionType.VERSION_TYPE_UPGRADE_AGENT">
+            <summary>
+            Version of the tool which upgrades reader software. 
+            </summary>
+        </member>
+        <member name="T:Impinj.STP.RegulatoryRegion">
+            <summary>
+            RF regulatory region. 
+            </summary>
+        </member>
+        <member name="F:Impinj.STP.Gen2Mode.GEN2_MODE_AUTO_SET">
+            <summary>
+            DEPRECATED 
+            </summary>
+        </member>
+        <member name="T:Impinj.STP.InventorySearchMode">
+            <summary>
+            How to inventory tags. 
+            </summary>
+        </member>
+        <member name="F:Impinj.STP.InventorySearchMode.INVENTORY_SEARCH_MODE_DUAL_TARGET">
+            <summary>
+            Inventory tags from A to B state and back to A. 
+            </summary>
+        </member>
+        <member name="F:Impinj.STP.InventorySearchMode.INVENTORY_SEARCH_MODE_SINGLE_TARGET_A_TO_B">
+            <summary>
+            Inventory tags from A to B state. 
+            </summary>
+        </member>
+        <member name="F:Impinj.STP.InventorySearchMode.INVENTORY_SEARCH_MODE_SINGLE_TARGET_B_TO_A">
+            <summary>
+            Inventory tags from B to A state. 
+            </summary>
+        </member>
+        <member name="F:Impinj.STP.InventorySearchMode.INVENTORY_SEARCH_MODE_SINGLE_TARGET_A_TO_B_MONZA_TAGFOCUS">
+            <summary>
+            Inventory tags from A to B state with boost. 
+            </summary>
+        </member>
+        <member name="F:Impinj.STP.InventorySearchMode.INVENTORY_SEARCH_MODE_SINGLE_TARGET_B_TO_A_MONZA_TAGFOCUS">
+            <summary>
+            Inventory tags from B to A state with boost. 
+            </summary>
+        </member>
+        <member name="F:Impinj.STP.InventorySearchMode.INVENTORY_SEARCH_MODE_CARTON_STAGE_1">
+            <summary>
+            ItemVerify Inventory Search Mode 1 
+            </summary>
+        </member>
+        <member name="F:Impinj.STP.InventorySearchMode.INVENTORY_SEARCH_MODE_CARTON_STAGE_2">
+            <summary>
+            ItemVerify Inventory Search Mode 2 
+            </summary>
+        </member>
+        <member name="T:Impinj.STP.OperationMode">
+            <summary>
+            How the reader will be used. 
+            </summary>
+        </member>
+        <member name="F:Impinj.STP.OperationMode.OPERATION_MODE_BATCH">
+            <summary>
+            Use with a start and stop for a quantity of tags. 
+            </summary>
+        </member>
+        <member name="F:Impinj.STP.OperationMode.OPERATION_MODE_SINGLE">
+            <summary>
+            Use with a start and stop for optimized encoding or verification when a single tag is in the FoV. 
+            </summary>
+        </member>
+        <member name="F:Impinj.STP.OperationMode.OPERATION_MODE_CONTINUOUS">
+            <summary>
+            Use this mode to encode a continuous stream of tags. 
+            </summary>
+        </member>
+        <member name="T:Impinj.STP.GpioSignalMode">
+            <summary>
+            The way that GPIOs are used, with functions on the same GPIOs or on separate GPIOs. 
+            </summary>
+        </member>
+        <member name="T:Impinj.STP.ReportType">
+            <summary>
+            Use this type when registering a report handler. 
+            </summary>
+        </member>
+        <member name="F:Impinj.STP.TagOperationReportTrigger.TAG_OPERATION_REPORT_TRIGGER_IMMEDIATE">
+            <summary>
+            Send reports as operations are performed. 
+            </summary>
+        </member>
+        <member name="F:Impinj.STP.TagOperationResult.TAG_OPERATION_RESULT_FAIL_TID_TABLE_NO_MATCH">
+            <summary>
+            There was no TIDTableEntry_ for this tag. 
+            </summary>
+        </member>
+        <member name="F:Impinj.STP.TagOperationResult.TAG_OPERATION_RESULT_FAIL_ORDERED_LIST_EMPTY">
+            <summary>
+            The device has run out of OrderedListEntry_. 
+            </summary>
+        </member>
+        <member name="F:Impinj.STP.TagOperationResult.TAG_OPERATION_RESULT_FAIL_TAG_CHIP_NOT_SUPPORTED">
+            <summary>
+            This tag chip is not supported. 
+            </summary>
+        </member>
+        <member name="F:Impinj.STP.TagOperationResult.TAG_OPERATION_RESULT_FAIL_TAG_CHIP_SUPPORTED_LICENSE_KEY_NOT_INSTALLED">
+            <summary>
+            This tag chip is supported, but the corresponding feature key has not been installed. 
+            </summary>
+        </member>
+        <member name="F:Impinj.STP.TagOperationResult.TAG_OPERATION_RESULT_FAIL_TAG_NOT_INVENTORIED">
+            <summary>
+            The device was expecting to see a tag (Single mode), but did not. 
+            </summary>
+        </member>
+        <member name="F:Impinj.STP.TagOperationResult.TAG_OPERATION_RESULT_FAIL_VOLUME_EXHAUSTED">
+            <summary>
+            The remaining encoding volume for this tag type has exhausted. 
+            </summary>
+        </member>
+        <member name="F:Impinj.STP.TagOperationResult.TAG_OPERATION_RESULT_FAIL_SERIAL_NUMBER_RANGE_EMPTY">
+            <summary>
+            The device has run out of serial numbers. 
+            </summary>
+        </member>
+        <member name="F:Impinj.STP.TagOperationResult.TAG_OPERATION_RESULT_FAIL_VOYANTIC_TEST_RESULT_MISSING">
+            <summary>
+            Device was configured to expect performance information packet, but did not receive one for this tid 
+            </summary>
+        </member>
+        <member name="F:Impinj.STP.TagOperationResult.TAG_OPERATION_RESULT_FAIL_VOYANTIC_TEST_RESULT_FAILED">
+            <summary>
+            The upstream performance indicator reported that this tag had poor performance. This will only come from a tagchip basic verifier who receives a performance report that declares a failure. 
+            </summary>
+        </member>
+        <member name="F:Impinj.STP.TagOperationResult.TAG_OPERATION_RESULT_VOID_TAG_PASS">
+            <summary>
+            The device attempted to void the tag, and was successful. 
+            </summary>
+        </member>
+        <member name="F:Impinj.STP.TagOperationResult.TAG_OPERATION_RESULT_VOID_TAG_FAIL">
+            <summary>
+            The device attempted to void the tag and failed to complete the task 
+            </summary>
+        </member>
+        <member name="F:Impinj.STP.TagOperationResult.TAG_OPERATION_RESULT_FAIL_TID_TABLE_INVALID_CONFIG">
+            <summary>
+            The encoding configuration for this tag was invalid. 
+            </summary>
+        </member>
+        <member name="F:Impinj.STP.TagOperationResult.TAG_OPERATION_RESULT_FAIL_FILTER_NO_MATCH">
+            <summary>
+            This tag didn't match one of the configured filters. 
+            </summary>
+        </member>
+        <member name="F:Impinj.STP.TagOperationResult.TAG_OPERATION_RESULT_FAIL_VOLUME_LICENSE_REVOKED">
+            <summary>
+            The Volume License for this tag has been revoked. Please contactImpinj Support for assistance. 
+            </summary>
+        </member>
+        <member name="F:Impinj.STP.TagOperationResult.TAG_OPERATION_RESULT_FAIL_INVENTORIED_EPC_MISMATCH">
+            <summary>
+            The device has detected that the backscattered EPC does not match the EPC writes that were already performed. 
+            </summary>
+        </member>
+        <member name="F:Impinj.STP.TagOperationResult.TAG_OPERATION_RESULT_FAIL_CANNOT_CHANGE_MEMORY_MAP_CONFIG">
+            <summary>
+            The device has detected that the Monza R6P memory map was previously configured to a different state than what was requested. 
+            </summary>
+        </member>
+        <member name="T:Impinj.STP.SerialNumberRangeFormat">
+            <summary>
+            Serial Number Range format specifies whether the EPC will be formatted in binary coded hexadecimal or binary coded decimal. 
+            </summary>
+        </member>
+        <member name="F:Impinj.STP.CartonContentsResult.CARTON_CONTENTS_RESULT_OK">
+            <summary>
+            This indicates that the contents of this packet describes acarton for which the device had good data. 
+            </summary>
+        </member>
+        <member name="F:Impinj.STP.CartonContentsResult.CARTON_CONTENTS_RESULT_ERROR_NO_ENTER">
+            <summary>
+            The stop trigger was seen for this carton, but no correspondingstart was seen. An example would be in a belt stoppage scenario duringstartup 
+            </summary>
+        </member>
+        <member name="F:Impinj.STP.CartonContentsResult.CARTON_CONTENTS_RESULT_ERROR_NO_START">
+            <summary>
+            DEPRECATED 
+            </summary>
+        </member>
+        <member name="T:Impinj.STP.OperationEventType">
+            <summary>
+            **NOT YET SUPPORTED** 
+            </summary>
+        </member>
+        <member name="F:Impinj.STP.OperationEventType.OPERATION_EVENT_TYPE_COMPLETE">
+            <summary>
+            An event for the end of the operation, and when no more reports will be delivered. 
+            </summary>
+        </member>
+        <member name="T:Impinj.STP.OperationTriggerType">
+            <summary>
+            **NOT YET SUPPORTED** The source of the operation start/stop. 
+            </summary>
+        </member>
+        <member name="T:Impinj.STP.DeviceExceptionEventType">
+            <summary>
+            **NOT YET SUPPORTED** 
+            </summary>
+        </member>
+        <member name="F:Impinj.STP.DeviceExceptionEventType.DEVICE_EXCEPTION_EVENT_TYPE_OPERATION_START_TRIGGER_FAULT">
+            <summary>
+            Generated when a GPI start trigger fires before STP is done with the current operation and returned to the engaged state. 
+            </summary>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,56 @@
+﻿<Application x:Class="HostingEmap.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:HostingEmap"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+        <Style x:Key="normalImage" TargetType="{x:Type Image}">
+            <Setter Property="Source" Value="C:\eMap3D\appBin\IMAGES\btn_FILTERNONE_off.png"/>
+        </Style>
+        <Style x:Key="actionImage" TargetType="{x:Type Image}">
+            <Setter Property="Source" Value="C:\eMap3D\appBin\IMAGES\btn_FILTERNONE_on.png"/>
+        </Style>
+        <Style x:Key="normalAngle" TargetType="{x:Type Image}">
+            <Setter Property="Source" Value="C:\eMap3D\appBin\IMAGES\앵글뷰버튼_unclicked.png"/>
+        </Style>
+        <Style x:Key="actionAngle" TargetType="{x:Type Image}">
+            <Setter Property="Source" Value="C:\eMap3D\appBin\IMAGES\앵글뷰버튼_clicked.png"/>
+        </Style>
+        <Style x:Key="buttonstylesample" BasedOn="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" TargetType="Button">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button"> 
+                        <Grid>
+                            <Image x:Name="img" Style="{DynamicResource normalImage}" />
+                            <TextBlock Text="{TemplateBinding Name}" Foreground="Black"
+                                       VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="33" FontWeight="ExtraBold"  />
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="Style" TargetName="img" Value="{DynamicResource actionImage}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style x:Key="buttonstyleAngle" TargetType="Button"  BasedOn="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" >
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Grid>
+                            <Image x:Name="img" Style="{DynamicResource normalAngle}" />
+                            <TextBlock Text="{TemplateBinding Name}" Foreground="Black"
+                                       VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="33" FontWeight="ExtraBold"  />
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="Style" TargetName="img" Value="{DynamicResource actionAngle}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Application.Resources>
+</Application>

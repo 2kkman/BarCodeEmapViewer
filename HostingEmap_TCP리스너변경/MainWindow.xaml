@@ -1,0 +1,113 @@
+﻿<Window
+    x:Class="HostingEmap.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:hosting="clr-namespace:WpfAppControl;assembly=WpfAppControl"
+    xmlns:local="clr-namespace:HostingEmap"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="드래곤플라이 - 택트레이서"
+    Width="1920"
+    Height="1080"
+    mc:Ignorable="d" FontSize="20" ResizeMode="NoResize" WindowStyle="None" WindowState="Maximized">
+    <Canvas x:Name="cvs" Height="1060" Margin="0,0,0,0" Background="#FF332C2B">
+        <hosting:AppControl x:Name="appControl" Height="1030" Canvas.Left="310" Canvas.Top="0" Width="1580"/>
+        <Button Name="필터해제" Canvas.Left="61" Canvas.Top="383" Click="btn_Init_Click"  Width="177" Height="83" BorderThickness="0" Style="{DynamicResource buttonstylesample}" Tag="해제">
+            <Button.Content>
+                <Grid VerticalAlignment="Stretch" ShowGridLines="False" >
+                    <TextBlock >필터해제</TextBlock>
+                </Grid>
+            </Button.Content>
+        </Button>
+
+        <Canvas Name="gb_Search" Height="271" Canvas.Left="10" Canvas.Top="111" Width="280" Background="#FFDCDDDD">
+            <ComboBox  Background="Black" Foreground="Black" x:Name="cmb_Location" HorizontalAlignment="Left" Height="51" VerticalAlignment="Top" Width="228" Canvas.Top="73" Canvas.Left="30" Tag="Node" SelectionChanged="cmb_Location_SelectionChanged" VerticalContentAlignment="Center" Visibility="Hidden" />
+            <ComboBox  Background="#FF332C2B" Foreground="Black" x:Name="cmb_SN" HorizontalAlignment="Left" Height="51" VerticalAlignment="Top" Width="228" Canvas.Left="30" Canvas.Top="210" Tag="SERIAL"  SelectionChanged="cmb_Location_SelectionChanged" VerticalContentAlignment="Center" />
+            <ComboBox  Background="#FF332C2B" Foreground="Black" x:Name="cmb_Ant" HorizontalAlignment="Left" Height="51" VerticalAlignment="Top" Width="228" Canvas.Left="306" Canvas.Top="73" Tag="Ant" SelectionChanged="cmb_Location_SelectionChanged" VerticalContentAlignment="Center" Visibility="Hidden"/>
+            <ComboBox Background="#FF332C2B" Foreground="Black"  x:Name="cmb_MAKTX" HorizontalAlignment="Left" Height="51" VerticalAlignment="Top" Width="228"  Canvas.Top="73" Canvas.Left="30" Tag="MAKTX" SelectionChanged="cmb_Location_SelectionChanged" VerticalContentAlignment="Center" />
+            <TextBox Canvas.Top="32" x:Name="txt_Battery_Copy5"
+                Width="228" Height="36" FontSize="16" FontWeight="ExtraBold" Tag="cmb_Location" Canvas.Left="30" VerticalContentAlignment="Center" Background="#FF332C2B" Foreground="White" Visibility="Hidden"/>
+            <TextBox  Background="#FF332C2B" Foreground="White" Canvas.Left="306" Canvas.Top="32" x:Name="txt_Battery_Copy6"
+                Width="228" Height="36" FontSize="16" FontWeight="ExtraBold" Tag="cmb_Ant" VerticalContentAlignment="Center" Visibility="Hidden"/>
+            <TextBox  Background="#FF332C2B" Foreground="White" Canvas.Top="36" x:Name="txt_Battery_Copy7"
+                Width="228" Height="36" FontSize="16" FontWeight="ExtraBold" Tag="cmb_MAKTX" Canvas.Left="30" VerticalContentAlignment="Center" />
+            <TextBox Background="#FF332C2B" Foreground="White" Canvas.Left="30" Canvas.Top="166" x:Name="txt_Battery_Copy8"
+                Width="228" Height="36" FontSize="16" FontWeight="ExtraBold" Tag="cmb_SN" VerticalContentAlignment="Center" KeyDown="txt_Battery_Copy8_KeyDown" />
+            <Label x:Name="lblBattery_Copy5" FontSize="20" FontWeight="ExtraBold" Content="위치" Width="116" Height="40" Canvas.Left="30" Foreground="#FF332C2B" Canvas.Top="-5" Visibility="Hidden"/>
+            <Label Canvas.Left="306" x:Name="lblBattery_Copy6" FontSize="20" FontWeight="ExtraBold" Content="선반셀 번호" Width="116" Height="40"  Foreground="#FF332C2B" Canvas.Top="-5" Visibility="Hidden"/>
+            <Label x:Name="lblBattery_Copy8" FontSize="20" FontWeight="ExtraBold" Content="일련번호" Width="116" Height="40" Canvas.Left="30" Canvas.Top="129" Foreground="#FF332C2B"/>
+            <Label x:Name="lblBattery_Copy7" FontSize="20" FontWeight="ExtraBold" Content="제품명" Width="116" Height="40" Canvas.Left="30" Foreground="#FF332C2B" Canvas.Top="-6"/>
+        </Canvas>
+        <Canvas Name="gb_Alive" Height="141" Canvas.Left="10" Canvas.Top="471" Width="280" Background="#FFDCDDDD">
+            <TextBox Background="#FF332C2B" Foreground="White" Canvas.Left="120" Canvas.Top="4" x:Name="txt_Battery"
+                Width="134" Height="36" FontSize="16" FontWeight="ExtraBold" Tag="V" VerticalAlignment="Center" VerticalContentAlignment="Center"/>
+            <Label Canvas.Top="8" x:Name="lblBattery" FontSize="16" FontWeight="Bold" Content="배터리 잔량" Width="115" Height="32"/>
+            <TextBox Background="#FF332C2B" Foreground="White" Canvas.Left="120" Canvas.Top="65" x:Name="txt_Battery_Copy"
+                Width="100" Height="36" FontSize="16" FontWeight="ExtraBold" Tag="Total" VerticalAlignment="Center" VerticalContentAlignment="Center" Visibility="Hidden"/>
+            <Label Canvas.Top="102" x:Name="lblBattery_Copy" FontSize="16" FontWeight="Bold" Content="현재 작업" Width="115" Height="32"/>
+            <TextBox Background="#FF332C2B" Foreground="White" Canvas.Left="120" Canvas.Top="98" x:Name="txt_Battery_Copy1"
+                Width="134" Height="36" FontSize="16" FontWeight="ExtraBold" Tag="DESC" VerticalAlignment="Center" VerticalContentAlignment="Center"/>
+            <Label Canvas.Top="69" x:Name="lblBattery_Copy1" FontSize="16" FontWeight="Bold" Content="RFID리딩 횟수" Width="115" Height="32" Visibility="Hidden"/>
+            <Label Canvas.Left="274" Canvas.Top="69" x:Name="lblBattery_Copy2" FontSize="16" FontWeight="Bold" Content="노드타입" Width="115" Height="32" RenderTransformOrigin="0.501,0.137" Visibility="Hidden"/>
+            <Label Canvas.Left="0" x:Name="lblBattery_Copy3" FontSize="16" FontWeight="Bold" Content="운영시간" Width="115" Height="32" RenderTransformOrigin="0.501,0.137" Canvas.Top="51"/>
+            <Label Canvas.Left="274" Canvas.Top="128" x:Name="lblBattery_Copy4" FontSize="16" FontWeight="Bold" Content="현재노드" Width="115" Height="32" RenderTransformOrigin="0.501,0.137" Visibility="Hidden"/>
+            <TextBox Background="#FF332C2B" Foreground="White" Canvas.Left="352" Canvas.Top="128" x:Name="txt_Battery_Copy4"
+                Width="200" Height="36" FontSize="16" FontWeight="ExtraBold" Tag="SEQ" RenderTransformOrigin="0.539,1.867"  VerticalAlignment="Center" VerticalContentAlignment="Center" Visibility="Hidden"/>
+            <TextBox Background="#FF332C2B" Foreground="White" Canvas.Left="352" Canvas.Top="69" x:Name="txt_Battery_Copy2"
+                Width="200" Height="36" FontSize="16" FontWeight="ExtraBold" Tag="TYPE" VerticalAlignment="Center" VerticalContentAlignment="Center" Visibility="Hidden"/>
+            <TextBox Background="#FF332C2B" Foreground="White" Canvas.Left="120" x:Name="txt_Battery_Copy3"
+                Width="134" Height="36" FontSize="16" FontWeight="ExtraBold" Tag="S" Canvas.Top="51" VerticalAlignment="Center" VerticalContentAlignment="Center" Margin="0,0,0,0"/>
+
+        </Canvas>
+        <Image Height="65" MouseLeftButtonDown="Image_TouchEnter" Canvas.Left="8" Canvas.Top="6" Width="276" Stretch="Fill" Source="C:\eMap3D\appBin\IMAGES\DF_LOGO2.png"/>
+        <Label x:Name="lbl_ProductCnt" FontSize="23" FontWeight="Bold" Content="재고조사대기" Width="210" Height="40" Canvas.Left="10" Canvas.Top="72" Foreground="White" MouseDoubleClick="Image_Init" />
+        <Label x:Name="lbl_StatusConnect" FontSize="23" FontWeight="Bold" Content="" Width="40" Height="35" Canvas.Left="190" Canvas.Top="72" Foreground="White"/>
+
+        <Button Name="기본뷰" Canvas.Top="618" Click="Button_Click_1"  Width="180" Height="124" BorderThickness="0" Style="{DynamicResource buttonstyleAngle}" Tag="해제" Canvas.Left="-2">
+            <Button.Content>
+                <Grid VerticalAlignment="Stretch" ShowGridLines="False" >
+                    <TextBlock >기본뷰</TextBlock>
+                </Grid>
+            </Button.Content>
+        </Button>
+        <Button Name="선반B" Canvas.Left="126" Canvas.Top="618" Click="Button_Click_2"  Width="180" Height="124" BorderThickness="0" Style="{DynamicResource buttonstyleAngle}" Tag="해제">
+            <Button.Content>
+                <Grid VerticalAlignment="Stretch" ShowGridLines="False" >
+                    <TextBlock >선반1</TextBlock>
+                </Grid>
+            </Button.Content>
+        </Button>
+        <Button Name="선반S" Canvas.Left="126" Canvas.Top="742" Click="Button_Click_3"  Width="180" Height="124" BorderThickness="0" Style="{DynamicResource buttonstyleAngle}" Tag="해제">
+            <Button.Content>
+                <Grid VerticalAlignment="Stretch" ShowGridLines="False" >
+                    <TextBlock >선반2</TextBlock>
+                </Grid>
+            </Button.Content>
+        </Button>
+        <Button Name="탑뷰" Canvas.Top="742" Click="Button_Click_4"  Width="180" Height="124" BorderThickness="0" Style="{DynamicResource buttonstyleAngle}" Tag="해제" Canvas.Left="-2">
+            <Button.Content>
+                <Grid VerticalAlignment="Stretch" ShowGridLines="False" >
+                    <TextBlock >탑뷰</TextBlock>
+                </Grid>
+            </Button.Content>
+        </Button>
+
+        <Canvas x:Name="gb_Btns" Height="214" Canvas.Left="0" Canvas.Top="633" Width="588" Visibility="Hidden">
+            <Button Canvas.Top="85" Canvas.Left="0" x:Name="btnTEST" Width="80" Click="btnTEST_Click" Content="DF상태"/>
+            <Button Content="데이터로드" Height="30" Width="118" Click="Button_Click" />
+            <Button x:Name="btn_Reload" Content="Reload" Height="30" Canvas.Left="123" Width="65" Click="btn_Reload_Click" />
+            <Button x:Name="btn_Clear" Content="Clear" Height="30" Canvas.Left="193" Width="65" Click="btn_Clear_Click"  />
+            <CheckBox x:Name="chk_Shadow" Content="Shadow" Height="29" Canvas.Left="125" Canvas.Top="124" Width="105" Checked="chk_Shadow_Checked" Unchecked="chk_Shadow_Checked"/>
+            <CheckBox x:Name="chk_Lock" Content="Lock" Height="29" Canvas.Left="25" Canvas.Top="124" Width="74" Checked="CheckBox_Checked" Unchecked="CheckBox_Checked"/>
+            <Button Content="기본뷰" Height="30" Width="65" Canvas.Top="50" Click="Button_Click_1"/>
+            <Button Content="큰선반" Height="30" Width="65" Canvas.Top="50" Canvas.Left="90" Click="Button_Click_2"/>
+            <Button Content="작은선반" Height="30" Width="87" Canvas.Top="50" Canvas.Left="171" Click="Button_Click_3" />
+            <Button Content="탑 뷰" Height="30" Width="86" Canvas.Top="85" Canvas.Left="150" Click="Button_Click_4" />
+            <CheckBox x:Name="chk_RackStatus" Content="셀채색" Height="29" Canvas.Left="25" Canvas.Top="175" Width="74" Checked="CheckBox_Status" Unchecked="CheckBox_Status"/>
+            <CheckBox x:Name="chk_Rotate" Content="회전" Height="29" Canvas.Left="125" Canvas.Top="175" Width="74" Checked="Check_Rotate_Status" Unchecked="Check_Rotate_Status"/>
+            <ComboBox x:Name="cmb_nodeTest" Height="51" VerticalAlignment="Top" Width="136" Canvas.Top="153" Canvas.Left="235" Tag="Node" SelectionChanged="cmb_Test_SelectionChanged" VerticalContentAlignment="Center" RenderTransformOrigin="0.506,0.714" />
+        </Canvas>
+
+    </Canvas>
+
+</Window>
