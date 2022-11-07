@@ -57,3 +57,15 @@ D:\A_WORK\00_Source\B_SPG\EmapViewer_20211026_CES\WpfAppControl\obj\x86\Release\
 D:\A_WORK\00_Source\B_SPG\EmapViewer_20211026_CES\WpfAppControl\obj\x86\Release\WpfAppControl.dll
 D:\A_WORK\00_Source\B_SPG\EmapViewer_20211026_CES\WpfAppControl\obj\x86\Release\WpfAppControl.pdb
 D:\B_SPG\EmapViewer_20211026_CES\WpfAppControl\obj\x86\Release\WpfAppControl.csproj.AssemblyReference.cache
+D:\00_WORK\00_GIT\BarCodeEmapViewer\WpfAppControl\bin\x86\Release\WpfAppControl.dll
+D:\00_WORK\00_GIT\BarCodeEmapViewer\WpfAppControl\bin\x86\Release\WpfAppControl.pdb
+D:\00_WORK\00_GIT\BarCodeEmapViewer\WpfAppControl\obj\x86\Release\WpfAppControl.csproj.AssemblyReference.cache
+D:\00_WORK\00_GIT\BarCodeEmapViewer\WpfAppControl\obj\x86\Release\AppControl.baml
+D:\00_WORK\00_GIT\BarCodeEmapViewer\WpfAppControl\obj\x86\Release\AppControl.g.cs
+D:\00_WORK\00_GIT\BarCodeEmapViewer\WpfAppControl\obj\x86\Release\WpfAppControl_MarkupCompile.cache
+D:\00_WORK\00_GIT\BarCodeEmapViewer\WpfAppControl\obj\x86\Release\WpfAppControl.g.resources
+D:\00_WORK\00_GIT\BarCodeEmapViewer\WpfAppControl\obj\x86\Release\WpfAppControl.Properties.Resources.resources
+D:\00_WORK\00_GIT\BarCodeEmapViewer\WpfAppControl\obj\x86\Release\WpfAppControl.csproj.GenerateResource.cache
+D:\00_WORK\00_GIT\BarCodeEmapViewer\WpfAppControl\obj\x86\Release\WpfAppControl.csproj.CoreCompileInputs.cache
+D:\00_WORK\00_GIT\BarCodeEmapViewer\WpfAppControl\obj\x86\Release\WpfAppControl.dll
+D:\00_WORK\00_GIT\BarCodeEmapViewer\WpfAppControl\obj\x86\Release\WpfAppControl.pdb

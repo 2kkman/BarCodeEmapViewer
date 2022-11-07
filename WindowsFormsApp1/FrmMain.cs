@@ -147,7 +147,7 @@ namespace WindowsFormsApp1
 
                     var textAnnotation = new AnnotationData();
                     textAnnotation.AnnotationType = AnnotationType.enumText;
-                    textAnnotation.StartPoint = new Point(boundingrect.Left, (int)(boundingrect.Top - textSize.Height * 1.25f));
+                    textAnnotation.StartPoint = new Point(boundingrect.Left - 200, (int)(boundingrect.Top - textSize.Height * 1.25f));
                     textAnnotation.EndPoint = new Point((textAnnotation.StartPoint.X + (int)textSize.Width * 2), (int)(textAnnotation.StartPoint.Y + textSize.Height * 1.25f));
                     if (textAnnotation.StartPoint.X < 0)
                     {
